@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUPER BOBA | 하이엔드 생보바 파트너십</title>
+    
+    <!-- Google Fonts: Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#D32F2F',    /* Brand Primary */
+                            dark: '#B71C1C',   /* Hover State */
+                        },
+                        warm: {
+                            white: '#F9F9F7',  /* Background */
+                            beige: '#F0EFEA',  /* Secondary Background */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans KR"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth Scrolling */
+        html { scroll-behavior: smooth; }
+        
+        /* Custom Utility for Image Placeholders */
+        .img-placeholder {
+            background-color: #E5E7EB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6B7280;
+            font-weight: 500;
+            border: 2px dashed #9CA3AF;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-white antialiased">
+
+    <!-- 1. Header (Sticky) -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
+        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center">
+                <img src="https://pub-ec940ddfe4af413090002915223c9c09.r2.dev/%EC%8A%88%ED%8D%BC%EB%B3%B4%EB%B0%94%EB%A1%9C%EA%B3%A0.png" alt="SUPER BOBA" class="h-10 md:h-12 w-auto">
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
+                <a href="#market" class="hover:text-brand-red transition">Brand Story</a>
+                <a href="#solution" class="hover:text-brand-red transition">Solution</a>
+                <a href="#contact" class="hover:text-brand-red transition">Contact</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <a href="#contact" class="bg-brand-red hover:bg-brand-dark text-white px-5 py-2.5 rounded font-bold text-sm transition duration-300 shadow-lg shadow-red-200">
+                파트너십 문의
+            </a>
+        </div>
+    </header>
+
+    <!-- 2. Hero Section (Split Layout: Image Top / Text Bottom) -->
+    <section class="flex flex-col w-full">
+        <!-- IMAGE AREA: Fully Visible -->
+        <div class="w-full h-[400px] md:h-[600px] bg-gray-200">
+            <!-- Background Image -->
+            <img src="https://pub-ec940ddfe4af413090002915223c9c09.r2.dev/%EC%83%9D%EC%84%B1%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%98%81%EC%83%81/freepik__-169-__14991.png" alt="Cafe Interior" class="w-full h-full object-cover">
+        </div>
+
+        <!-- PART 1: Market Problem (With Crowd Background) -->
+        <!-- Adjusted padding-top: pt-32 for mobile, md:pt-64 for desktop -->
+        <div class="relative bg-stone-900 pt-32 md:pt-64 pb-24 px-6 text-center text-white overflow-hidden">
+            
+            <!-- BACKGROUND IMAGE LAYER -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://pub-ec940ddfe4af413090002915223c9c09.r2.dev/9.%20%EC%A4%84%EC%84%9C%EC%9E%88%EB%8A%94%20%EC%82%AC%EC%A7%84/%EC%A4%84%EC%84%9C%EB%8A%94%EC%82%AC%EC%A7%841.jpg" 
+                     alt="Crowd Background" 
+                     class="w-full h-full object-cover opacity-70 blur-[3px] scale-105">
+            </div>
+            
+            <!-- OVERLAY LAYER (Darken the image for text readability) -->
+            <div class="absolute inset-0 bg-stone-900/80 z-0"></div>
+
+            <!-- CONTENT LAYER (z-10 to stay on top) -->
+            <div class="relative z-10 container mx-auto">
+                <span class="inline-block bg-brand-red/90 text-white text-xs font-bold px-3 py-1 rounded-full mb-6">
+                    국세청 100대 생활업종 통계 기준, 커피음료점 10만 개 돌파
+                </span>
+                <h1 class="text-lg md:text-4xl font-bold leading-relaxed md:leading-[3.0] mb-6 break-keep">
+                    대한민국 커피전문점 10만 개 시대,<br />
+                    사장님 매장만의 <span class="text-red-400">'생존 무기'</span>는 무엇입니까?
+                </h1>
+                <p class="text-gray-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto font-light">
+                    저희는 가맹점을 모집하는 것이 아닙니다.<br />
+                    검증된 <strong class="text-white">'메뉴 경쟁력(R&D)'</strong>과 <strong class="text-white">'핵심물류'</strong>만 공급하는 파트너입니다.
+                </p>
+                
+                <!-- Text Block Area -->
+                <div class="max-w-4xl mx-auto p-8 md:p-10 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm shadow-2xl relative overflow-hidden group hover:border-brand-red/30 transition duration-500">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-red/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
+                    <p class="text-gray-400 text-lg mb-4 font-medium tracking-wide">아메리카노 가격 싸움 대신,</p>
+                    <div class="text-xl md:text-3xl font-bold text-white mb-8 leading-normal md:leading-relaxed break-keep">
+                        한 잔에 <span class="text-brand-red text-2xl md:text-4xl mx-1">7,000원</span>을 받아도 ‘비싸다’ 소리 안 나오는<br class="hidden md:block">
+                        <span class="underline decoration-brand-red decoration-4 underline-offset-4">시그니처가 필요할 때.</span>
+                    </div>
+                    <div class="w-16 h-1 bg-gray-600 mx-auto mb-8 rounded-full"></div>
+                    <p class="text-lg md:text-xl text-gray-200 leading-relaxed font-light break-keep">
+                        갓 삶아 올라오는 생보바와 프리미엄 티 베이스로<br>
+                        <span class="text-white font-bold bg-brand-red/20 px-2 py-0.5 rounded">고객이 줄 서는 ‘프리미엄 메뉴’</span>를 
+                        <span class="underline decoration-brand-red decoration-4 underline-offset-4">매장에 전수해드립니다.</span>
+                    </p>
+                </div>
+
+                <!-- NEW VIDEO ADDED: Crowd Atmosphere -->
+                <div class="max-w-5xl mx-auto mt-16 rounded-xl overflow-hidden shadow-2xl border border-white/10 relative group">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-500 z-10 pointer-events-none"></div>
+                    <!-- Added ID 'fast-video' to target with script -->
+                    <video id="fast-video" autoplay loop muted playsinline class="w-full h-full object-cover">
+                        <source src="https://pub-ec940ddfe4af413090002915223c9c09.r2.dev/%EB%8C%80%EA%B8%B0%EB%B8%94%EB%9F%AC.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- PART 2: SUPER BOBA Brand Introduction (Clean Gradient Background) -->
+        <!-- Changed to a bright, luxurious warm tone gradient (Stone-50 to White) with dark text -->
+        <div class="bg-gradient-to-b from-stone-50 via-white to-stone-100 py-24 px-6 text-center text-gray-900 border-t border-gray-200">
+            <div class="container mx-auto">
+                <!-- SUPER BOBA Brand Introduction -->
+                <div class="max-w-6xl mx-auto mb-24 text-left md:text-center px-4 md:px-0">
+                    <!-- Added Logo Here -->
+                    <img src="https://pub-ec940ddfe4af413090002915223c9c09.r2.dev/%EC%8A%88%ED%8D%BC%EB%B3%B4%EB%B0%94%EB%A1%9C%EA%B3%A0.png" alt="SUPER BOBA Logo" class="h-16 md:h-20 w-auto mx-auto mb-8">
+                    
+                    <h2 class="text-3xl md:text-5xl font-black text-gray-900 mb-10 leading-tight">
+                        보바의 기준을 새롭게, <span class="text-brand-red">슈퍼보바</span>
+                    </h2>
+                    
+                    <div class="prose prose-lg mx-auto text-gray-600 leading-loose break-keep">
+                        <p class="text-xl md:text-2xl font-light mb-8 text-gray-800">
+                            <strong class="text-gray-900 font-bold">슈퍼보바(SUPERBOBA)</strong>는 서울 삼성역 인근에 <strong class="text-gray-900">본점(Flagship Store)</strong>을 운영중인 프리미엄 밀크티/버블티 전문 브랜드입니다.
+                        </p>
+                        <p class="mb-8">
+                            브랜드명 ‘슈퍼보바’는 <span class="text-brand-red font-bold">‘초(超) + 진주(珍珠)’</span>, 즉 <strong class="text-gray-900">“보바를 초월한 보바”</strong>라는 의미로,<br class="hidden md:block">
+                            “보바는 슈퍼하게” 한 차원 높은 보바 경험을 선사하겠다는 슬로건을 담고 있습니다.
+                        </p>
+                        <p class="mb-8">
+                            매일 직접 만드는 신선한 생보바로 <em class="text-gray-900 not-italic border-b border-brand-red">“한 잔의 완성, 수제의 정성”</em>을 내세워<br class="hidden md:block">
+                            매일매일 직접 펄을 만드는 <strong class="text-brand-red">생(生)보바 전문점</strong>으로 큰 사랑을 받고 있습니다.
+                        </p>
+                        <p>
+                            실제로 냉동 완제품 대신 매장에서 생보바를 통해 고객만족을 이끌면서 그 가치를 입증해가고 있으며,<br class="hidden md:block">
+                            다양한 라인업으로 고객의 입과 눈을 즐겁게 하는 슈퍼보바입니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Media Grid Gallery -->
+                <div class="max-w-6xl mx-auto space-y-6">
+                    <!-- Row 1: Video -->
+                    <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-2xl bg-gray-100 border border-gray-200 group">
+                        <video controls playsinline class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <source src="https://pub-ec940ddfe4af413090002915223c9c09.r2.dev/%EB%A7%A4%EC%9E%A5%EC%98%81%EC%83%811.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+
+                    <!-- Row 2: Signature Main Image -->
+                    <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-2xl bg-gray-100 border border-gray-200 relative group">
+                        <img src="https://pub-ec940ddfe4af413090002915223c9c09.r2.dev/1.%EC%8B%9C%EA%B7%B8%EB%8B%88%EC%B2%98_%ED%94%84%EB%A0%88%EC%89%AC%20BOBA/%ED%9D%91%EB%8B%B9%EC%8B%9C%EA%B7%B8%EB%8B%88%EC%B2%98.jpg" alt="흑당 시그니처" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-left">
+                            <p class="text-white font-bold text-lg">흑당 시그니처 (Signature)</p>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Menu Lineup -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="aspect-square w-full rounded-2xl overflow-hidden shadow-xl border border-gray-200 relative group">
+                            <img src="https://pub-ec940ddfe4af413090002915223c9c09.r2.dev/1.%EC%8B%9C%EA%B7%B8%EB%8B%88%EC%B2%98_%ED%94%84%EB%A0%88%EC%89%AC%20BOBA/%ED%9D%91%EB%8B%B9%EB%B3%B4%EB%B0%94%EC%98%A4%EB%A6%AC%EC%A7%84.jpg" alt="흑당 보바 오리진" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                             <div class="absolute bottom-0 left-0 right-0 p-4 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition duration-300 text-left">
+                                <span class="text-white font-medium">흑당 보바 오리진</span>
+                            </div>
+                        </div>
+                        <div class="aspect-square w-full rounded-2xl overflow-hidden shadow-xl border border-gray-200 relative group">
+                            <img src="https://pub-ec940ddfe4af413090002915223c9c09.r2.dev/1.%EC%8B%9C%EA%B7%B8%EB%8B%88%EC%B2%98_%ED%94%84%EB%A0%88%EC%89%AC%20BOBA/%ED%9D%91%EB%8B%B9%EB%B3%B4%EB%B0%94%EB%A7%90%EC%B0%A8.jpg" alt="흑당 보바 말차" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <div class="absolute bottom-0 left-0 right-0 p-4 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition duration-300 text-left">
+                                <span class="text-white font-medium">흑당 보바 말차</span>
+                            </div>
+                        </div>
+                        <div class="aspect-square w-full rounded-2xl overflow-hidden shadow-xl border border-gray-200 relative group">
+                            <img src="https://pub-ec940ddfe4af413090002915223c9c09.r2.dev/7.%20%EB%94%94%EC%A0%80%ED%8A%B8/%EA%B3%A0%EA%B8%B0%EC%95%BC%EC%B1%84%EB%B9%A0%EC%98%A4%EC%A6%88.jpg" alt="고기야채 빠오즈" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <div class="absolute bottom-0 left-0 right-0 p-4 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition duration-300 text-left">
+                                <span class="text-white font-medium">고기야채 빠오즈</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 4: Store Atmosphere -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-xl border border-gray-200 group">
+                            <img src="https://pub-ec940ddfe4af413090002915223c9c09.r2.dev/%EB%A7%A4%EC%9E%A5%EC%82%AC%EC%A7%841.jpg" alt="매장 사진" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-xl border border-gray-200 group">
+                            <img src="https://pub-ec940ddfe4af413090002915223c9c09.r2.dev/%EB%8B%A8%EC%B2%B42.jpg" alt="고객 사진" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                         <div class="aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-xl border border-gray-200 group">
+                            <img src="https://pub-ec940ddfe4af413090002915223c9c09.r2.dev/%EB%8B%A8%EC%B2%B43.jpg" alt="고객 사진" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                    </div>
+                     
+                    <!-- Row 5: Additional Crowd Photos -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-xl border border-gray-200 group">
+                            <img src="https://pub-ec940ddfe4af413090002915223c9c09.r2.dev/%EB%8B%A8%EC%B2%B45.jpg" alt="고객 사진" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-xl border border-gray-200 group">
+                            <img src="https://pub-ec940ddfe4af413090002915223c9c09.r2.dev/%EB%8B%A8%EC%B2%B46.jpg" alt="고객 사진" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                         <div class="aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-xl border border-gray-200 group">
+                            <img src="https://pub-ec940ddfe4af413090002915223c9c09.r2.dev/%EB%8B%A8%EC%B2%B410.jpg" alt="고객 사진" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                    </div>
+
+                    <!-- Row 6: Additional Photos -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-xl border border-gray-200 group">
+                            <img src="https://pub-ec940ddfe4af413090002915223c9c09.r2.dev/%EB%A7%A4%EC%9E%A5%EC%82%AC%EC%A7%842.jpg" alt="매장 사진" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-xl border border-gray-200 group">
+                            <img src="https://pub-ec940ddfe4af413090002915223c9c09.r2.dev/%EB%8B%A8%EC%B2%B49.jpg" alt="고객 사진" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Market Analysis (Restored) -->
+    <section id="market" class="w-full bg-white">
+        <!-- Background Image Section -->
+        <!-- Removed fixed height and object-cover to display full image aspect ratio -->
+        <div class="w-full">
+            <img src="https://pub-ec940ddfe4af413090002915223c9c09.r2.dev/%ED%8F%AC%ED%99%94%EC%83%81%ED%83%9C.png" 
+                 alt="Market Saturation" 
+                 class="w-full h-auto">
+        </div>
+        
+        <!-- Text Content Section -->
+        <div class="py-20 px-6 bg-white text-center">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="text-brand-red font-bold tracking-widest text-sm uppercase mb-6">Market Reality</h2>
+                
+                <h3 class="text-2xl md:text-4xl font-bold leading-relaxed mb-10 break-keep text-gray-900">
+                    대한민국 카페는 <span class="text-brand-red">10만 개</span>를 넘어섰지만,<br>
+                    대부분의 매장 메뉴판은 <span class="text-gray-400 line-through decoration-brand-red decoration-2">5년 전</span>과 거의 달라지지 않았습니다.
+                </h3>
+                
+                <div class="w-20 h-1 bg-gray-200 mx-auto mb-10 rounded-full"></div>
+
+                <p class="text-lg md:text-xl text-gray-600 font-medium leading-loose break-keep">
+                    손님은 변했는데, 메뉴는 멈춰 있습니다.<br>
+                    그 결과, 동네 카페들은 <strong class="text-gray-900 bg-red-50 px-2 py-1 rounded">끝없는 가격 경쟁</strong>에 갇혀 있습니다.
+                </p>
+            </div>
+        </div>
+
+        <!-- Crisis Image Added Here -->
+        <div class="w-full bg-white pb-20 px-6">
+            <div class="container mx-auto max-w-4xl">
+                <img src="https://pub-ec940ddfe4af413090002915223c9c09.r2.dev/%EC%9E%90%EC%98%81%EC%97%85%EC%9E%90%EC%9C%84%EA%B8%B0.png" alt="자영업자 위기" class="w-full h-auto rounded-lg shadow-lg border border-gray-100">
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Customer Experience / Hope -->
+    <!-- Changed background to bright gradient (White to Light Red/Orange) for a hopeful vibe -->
+    <section class="py-24 bg-gradient-to-br from-orange-50 via-white to-red-50 text-gray-900 relative overflow-hidden">
+        <!-- Decorative elements (Adjusted for light background) -->
+        <div class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+            <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-yellow-200/30 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-red-200/30 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h3 class="text-3xl md:text-5xl font-bold leading-tight mb-12 break-keep text-gray-900">
+                    “고객은 이제 ‘식음료’가 아니라<br>
+                    <span class="text-brand-red">‘경험’</span>을 소비합니다.”
+                </h3>
+                
+                <p class="text-xl md:text-2xl text-gray-600 font-normal mb-12 leading-relaxed break-keep">
+                    더 이상 단순한 ‘음료, 음식 자체’가 목적이 아닙니다.<br><br>
+                    고객은 <span class="text-gray-900 font-bold bg-yellow-100 px-1">식감(Chewiness)</span>, <span class="text-gray-900 font-bold bg-yellow-100 px-1">시그니처 비주얼</span>,<br>
+                    새로운 경험을 주는 메뉴를 선택합니다.
+                </p>
+
+                <!-- Cards updated: Images enlarged to fill top of cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-16">
+                    
+                    <!-- Card 1 -->
+                    <div class="rounded-2xl bg-white border border-red-100 shadow-xl hover:-translate-y-2 transition duration-300 overflow-hidden group flex flex-col">
+                        <div class="h-64 w-full overflow-hidden relative">
+                            <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition z-10"></div>
+                            <img src="https://pub-ec940ddfe4af413090002915223c9c09.r2.dev/%EB%B3%B4%EB%B0%94%EC%82%AC%EC%A7%84.png" alt="쫀득한 생보바" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        </div>
+                        <div class="p-8 flex-1 flex flex-col items-center justify-center relative bg-white">
+                            <!-- Icon Removed -->
+                            <h4 class="text-2xl font-bold mb-3 text-gray-900">쫀득한 생보바</h4>
+                            <p class="text-gray-600 font-medium leading-relaxed">입안 가득 퍼지는<br>살아있는 식감</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="rounded-2xl bg-white border border-red-100 shadow-xl hover:-translate-y-2 transition duration-300 overflow-hidden group flex flex-col">
+                        <div class="h-64 w-full overflow-hidden relative">
+                            <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition z-10"></div>
+                            <img src="https://pub-ec940ddfe4af413090002915223c9c09.r2.dev/4.%20%EC%98%A4%EB%A6%AC%EC%A7%80%EB%84%90%20%ED%8B%B0/%EC%9C%A0%EC%9E%90%EC%9E%90%EC%8A%A4%EB%AF%BC%EA%B7%B8%EB%A6%B0%ED%8B%B0.jpg" alt="깊고 맑은 티" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        </div>
+                        <div class="p-8 flex-1 flex flex-col items-center justify-center relative bg-white">
+                            <!-- Icon Removed -->
+                            <h4 class="text-2xl font-bold mb-3 text-gray-900">깊고 맑은 티</h4>
+                            <p class="text-gray-600 font-medium leading-relaxed">프리미엄 잎차로 우려낸<br>진한 풍미</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="rounded-2xl bg-white border border-red-100 shadow-xl hover:-translate-y-2 transition duration-300 overflow-hidden group flex flex-col">
+                        <div class="h-64 w-full overflow-hidden relative">
+                            <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition z-10"></div>
+                            <img src="https://pub-ec940ddfe4af413090002915223c9c09.r2.dev/%EB%8B%A8%EC%B2%B42.jpg" alt="리뷰를 부르는 비주얼" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        </div>
+                        <div class="p-8 flex-1 flex flex-col items-center justify-center relative bg-white">
+                            <!-- Icon Removed -->
+                            <h4 class="text-2xl font-bold mb-3 text-gray-900">리뷰를 부르는 비주얼</h4>
+                            <p class="text-gray-600 font-medium leading-relaxed">사진을 찍고 싶게 만드는<br>압도적 비주얼</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mb-16 inline-block relative">
+                    <div class="absolute inset-0 bg-brand-red/10 transform -skew-y-3 rounded-lg"></div>
+                    <p class="relative text-2xl md:text-3xl font-bold text-gray-900 px-8 py-4">
+                        우리가 갖추어야 할 <span class="text-brand-red">뾰족함</span>입니다.
+                    </p>
+                </div>
+
+                <!-- Removed the incorrectly added image from here -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Authority (Founder Profile) -->
+    <section class="py-20 bg-warm-beige">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <!-- Image Area -->
+                <div class="w-full lg:w-1/2">
+                    <div class="h-[500px] w-full rounded-lg shadow-xl bg-gray-300 overflow-hidden relative">
+                         <!-- Updated Founder Image as requested -->
+                         <img src="https://pub-ec940ddfe4af413090002915223c9c09.r2.dev/Gemini_Generated_Image_kj5nmxkj5nmxkj5n.png" alt="Founder" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                </div>
+
+                <!-- Text Area -->
+                <div class="w-full lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+                        메뉴 퀄리티,<br>
+                        <span class="text-brand-red">누가 만드느냐</span>가 전부입니다.
+                    </h2>
+                    
+                    <div class="mb-8 p-6 bg-white border-l-4 border-brand-red shadow-sm rounded-r-lg">
+                        <p class="text-lg text-gray-700 font-medium mb-2">Previous Career Highlights:</p>
+                        <ul class="text-gray-600 space-y-1">
+                            <li>• <strong>GORDON RAMSAY KOREA</strong></li>
+                            <li>• <strong>MEALTOP</strong> (밀탑)</li>
+                            <li>• <strong>JUDA HODU</strong> (주다호두)</li>
+                        </ul>
+                    </div>
+
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        피자헛, 쿠우쿠우 R&D 팀장 및 대형 브랜드 런칭 총괄 출신이 직접 설계했습니다.<br><br>
+                        공장에서 찍어내는 맛이 아닌, <br>
+                        전문가의 경험이 농축된 <strong>하이엔드 생보바 솔루션</strong>을 제안합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Solution (The 3 NOs) -->
+    <section id="solution" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold">사장님을 위한 <span class="text-brand-red">3 NO</span> 원칙</h2>
+                <p class="mt-4 text-gray-600">불필요한 거품은 걷어내고, 핵심만 담았습니다.</p>
+            </div>
+
+            <!-- NEW IMAGE ADDED HERE -->
+            <div class="max-w-5xl mx-auto mb-16">
+                <img src="https://pub-ec940ddfe4af413090002915223c9c09.r2.dev/%EB%85%B8%EA%B0%95%EC%A0%9C.png" alt="3 NO 원칙" class="w-full h-auto rounded-xl shadow-lg border border-gray-100">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. Product & Education -->
+    <section class="py-20 bg-warm-white border-y border-gray-200">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                
+                <!-- Left: Product -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="w-2 h-8 bg-brand-red mr-3 rounded"></span>
+                        Premium Ingredients
+                    </h3>
+                    <div class="h-64 w-full rounded-lg mb-6 bg-gray-200 overflow-hidden">
+                         <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Raw Boba" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-gray-700 text-lg leading-relaxed">
+                        냉동 타피오카가 아닙니다.<br>
+                        <strong>매일 매장에서 직접 삶는 '생(Raw)보바'</strong> 반죽과<br>
+                        엄선된 프리미엄 티 베이스를 공급합니다.
+                    </p>
+                    <p class="mt-4 text-gray-500 text-sm">
+                        * 비교 불가한 쫀득한 식감과 깊은 풍미를 보장합니다.
+                    </p>
+                </div>
+
+                <!-- Right: Education -->
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-bold mb-2 text-gray-900">단순 납품이 아닙니다.</h3>
+                    <p class="text-brand-red font-bold mb-8 text-lg">기술 전수(Technical Transfer)입니다.</p>
+
+                    <div class="space-y-6">
+                        <!-- Plan A -->
+                        <div class="border border-gray-200 rounded-lg p-6 hover:border-brand-red transition cursor-pointer group">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="text-xl font-bold group-hover:text-brand-red transition">Plan A. 슈퍼보바 마스터</h4>
+                                <span class="bg-gray-900 text-white text-xs px-2 py-1 rounded">Best</span>
+                            </div>
+                            <p class="text-2xl font-bold text-brand-red mb-2">300만원 <span class="text-sm text-gray-400 font-normal">(VAT 별도)</span></p>
+                            <p class="text-gray-600 text-sm">전 메뉴 레시피 + 매장 운영 노하우 + 생보바 제조 기술 완벽 전수</p>
+                        </div>
+
+                        <!-- Plan B -->
+                        <div class="border border-gray-200 rounded-lg p-6 hover:border-brand-red transition cursor-pointer group">
+                            <h4 class="text-xl font-bold mb-2 group-hover:text-brand-red transition">Plan B. 보바 스페셜리스트</h4>
+                            <p class="text-2xl font-bold text-brand-red mb-2">200만원 <span class="text-sm text-gray-400 font-normal">(VAT 별도)</span></p>
+                            <p class="text-gray-600 text-sm">핵심 생보바 제조 기술 + 시그니처 메뉴 집중 교육</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Success Case -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-12">"이미 삼성동 직장인들이 검증했습니다."</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                <!-- IMAGE: Store Crowd 1 -->
+                <div class="h-48 bg-gray-100 rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Success Case 1" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                </div>
+                <!-- IMAGE: Menu Close-up 1 -->
+                <div class="h-48 bg-gray-100 rounded-lg overflow-hidden">
+                     <img src="https://images.unsplash.com/photo-1541696432-82c6da8ce7ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Menu 1" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                </div>
+                <!-- IMAGE: Store Crowd 2 -->
+                <div class="h-48 bg-gray-100 rounded-lg overflow-hidden">
+                     <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Success Case 2" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                </div>
+                <!-- IMAGE: Menu Close-up 2 -->
+                <div class="h-48 bg-gray-100 rounded-lg overflow-hidden">
+                     <img src="https://images.unsplash.com/photo-1627993072559-0096c4d87747?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Menu 2" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                </div>
+            </div>
+
+            <blockquote class="relative max-w-2xl mx-auto p-6 bg-gray-50 rounded-xl italic text-gray-700 text-lg">
+                <span class="absolute top-4 left-4 text-4xl text-gray-300">"</span>
+                커피가 아닌데도 매일 오게 만드는 맛.<br>
+                점심시간마다 줄 서서 먹는 이유가 있습니다.
+                <span class="absolute bottom-4 right-4 text-4xl text-gray-300">"</span>
+                <footer class="mt-4 text-sm font-bold not-italic text-brand-red">- 실제 방문 고객 리뷰 중</footer>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- 8. Contact Form (CTA) -->
+    <section id="contact" class="py-24 bg-gray-900 text-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">가맹 문의가 아닙니다. <br><span class="text-red-500">파트너십 상담</span>입니다.</h2>
+                <p class="text-gray-400">아래 양식을 작성해주시면 담당자가 24시간 이내에 연락드립니다.</p>
+            </div>
+
+            <div class="bg-gray-800 p-8 md:p-12 rounded-2xl shadow-2xl border border-gray-700">
+                <!-- 
+                    IMPORTANT: Replace the URL below with your actual Formspree Form ID.
+                    Go to https://formspree.io/ to create a form and get your unique URL.
+                -->
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6">
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Company Name -->
+                        <div>
+                            <label for="company" class="block text-sm font-medium text-gray-400 mb-2">업체명 (매장명)</label>
+                            <input type="text" name="company" id="company" required class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition">
+                        </div>
+                        
+                        <!-- Contact Person -->
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-400 mb-2">담당자명</label>
+                            <input type="text" name="name" id="name" required class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Phone Number -->
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-400 mb-2">연락처</label>
+                            <input type="tel" name="phone" id="phone" required placeholder="010-0000-0000" class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition">
+                        </div>
+
+                        <!-- Status -->
+                        <div>
+                            <label for="status" class="block text-sm font-medium text-gray-400 mb-2">현재운영여부</label>
+                            <select name="status" id="status" class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition appearance-none">
+                                <option value="운영중">현재 매장 운영중</option>
+                                <option value="오픈예정">오픈 예정</option>
+                                <option value="기업담당자">기업 제휴 담당자</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Message -->
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-400 mb-2">문의내용</label>
+                        <textarea name="message" id="message" rows="4" placeholder="궁금하신 점을 자유롭게 적어주세요." class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="pt-4">
+                        <button type="submit" class="w-full bg-white hover:bg-gray-100 text-brand-red font-bold text-lg py-4 rounded-lg shadow-lg transform active:scale-95 transition duration-200">
+                            파트너십 도입 제안서 받기
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-gray-500 py-8 border-t border-gray-900">
+        <div class="container mx-auto px-6 text-center text-sm">
+            <p class="mb-2">&copy; 2024 SUPER BOBA. All rights reserved.</p>
+            <p>본 사이트는 포트폴리오 용도로 제작된 예시 페이지입니다.</p>
+        </div>
+    </footer>
+
+    <!-- Script to speed up the crowd video -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('fast-video');
+            if (video) {
+                video.playbackRate = 3.5; // 3.5x speed for more dynamic effect
+            }
+        });
+    </script>
+
+</body>
+</html>
