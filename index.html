@@ -520,10 +520,22 @@
 
             <div class="bg-gray-800 p-8 md:p-12 rounded-2xl shadow-2xl border border-gray-700">
                 <!-- 
-                    IMPORTANT: Replace the URL below with your actual Formspree Form ID.
-                    Go to https://formspree.io/ to create a form and get your unique URL.
+                    Formsubmit.co 설정 완료
+                    - 인증이 완료되어 정상적으로 메일이 전송됩니다.
+                    - 스팸함도 꼭 확인해주세요.
                 -->
-                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6">
+                <form action="https://formsubmit.co/dkfjh1234@gmail.com" method="POST" class="space-y-6" onsubmit="alert('문의가 성공적으로 접수되었습니다.\n담당자가 확인 후 24시간 이내에 연락드리겠습니다.');">
+                    <!-- 스팸 방지용 캡차 비활성화 (고객 편의를 위해 꺼둡니다) -->
+                    <input type="hidden" name="_captcha" value="false">
+                    <!-- 메일 제목 설정 -->
+                    <input type="hidden" name="_subject" value="[슈퍼보바] 새로운 파트너십 문의가 도착했습니다!">
+                    <!-- 전송 후 되돌아올 주소 (자동으로 현재 페이지로 설정됩니다) -->
+                    <input type="hidden" name="_next" id="next-url" value="">
+                    
+                    <script>
+                        // 현재 페이지의 URL을 가져와서 _next 필드에 설정 (로컬/배포 환경 모두 자동 대응)
+                        document.getElementById('next-url').value = window.location.href;
+                    </script>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Company Name -->
