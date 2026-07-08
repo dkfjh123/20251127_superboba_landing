@@ -1,0 +1,11 @@
+# 확인용 임시 스크린샷
+_*.png
+
+# 에셋 중간 산출물 (재생성 가능 — PDF 추출본, 드라이브 원본 사본)
+assets/pdf-extract/
+assets/source/
+
+# 최종 웹용 최적화본(assets/web/)만 커밋한다
+
+# bkit 플러그인 런타임 상태
+.bkit/
