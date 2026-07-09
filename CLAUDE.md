@@ -19,5 +19,5 @@
 
 ## 알려진 이슈 (2026-07-09 기준)
 
-- **배포**: GitHub main 푸시 → Cloudflare Pages 자동 배포 (`https://20251127-superboba-landing.pages.dev`). 커스텀 도메인은 미연결.
+- **배포**: GitHub main 푸시 → Cloudflare Pages 자동 배포. **공식 도메인 = `https://superbobas.com`** (+www, 2026-07-09 연결, Cloudflare Registrar 구입). pages.dev 주소도 병행 동작.
 - `_*.png` 스크린샷은 확인용 임시 파일 — 커밋하지 않는다.
