@@ -1718,6 +1718,77 @@
     .names-track span { padding: 13px 26px; border-radius: 99rem; background: #FAF7F1; border: 1px solid var(--line); font-size: 18px; font-weight: 700; color: var(--ink); white-space: nowrap; }
     @media (prefers-reduced-motion: reduce) { .names-track { animation: none; } }
 
+    /* ---------- 한글 줄바꿈 · 모바일 가독성 (2026-07-09) ---------- */
+    /* 제목은 줄 길이 균형(balance), 본문은 외자 낙오 방지(pretty) — 미지원 브라우저에선 무시됨 */
+    .h2,
+    .hero__title,
+    .choice-lead,
+    .brand-note__quote {
+      text-wrap: balance;
+    }
+
+    p,
+    .lead,
+    .ccol li,
+    .tl li {
+      text-wrap: pretty;
+    }
+
+    .hero__title .hl,
+    .hero__sub mark {
+      white-space: nowrap;
+    }
+
+    @media (max-width: 640px) {
+      .lead,
+      .hero__sub,
+      .choice-lead {
+        font-size: 17px;
+        line-height: 1.75;
+      }
+
+      .qrow__d {
+        font-size: 17px;
+        line-height: 1.75;
+      }
+
+      .mcard__desc,
+      .duo__d,
+      .hpoint__d {
+        font-size: 16px;
+        line-height: 1.65;
+      }
+
+      .mcard__title {
+        font-size: 18.5px;
+      }
+
+      .tl li {
+        font-size: 15px;
+        line-height: 1.7;
+      }
+
+      .ccol li {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .ccol li:not(:first-child) {
+        margin-top: 14px;
+      }
+
+      .faq-btn span {
+        font-size: 16.5px;
+      }
+
+      .faq-body p {
+        font-size: 16px;
+      }
+
+      .form-field label {
+        font-size: 15px;
+      }
+    }
   </style>
 </head>
 
@@ -1823,7 +1894,7 @@
       <div class="inner">
         <div class="center rv">
           <h2 class="h2">음료의 슈퍼보바,<br><span class="pt">디저트의 슈퍼호두</span></h2>
-          <p class="lead">슈퍼보바는 음료와 디저트, 매장의 두 가지 매출을 한 번에 설계합니다.</p>
+          <p class="lead">슈퍼보바는 음료와 디저트, 매장의 두 가지 매출을 한&nbsp;번에 설계합니다.</p>
         </div>
         <div class="duo rv">
           <div class="duo__card">
@@ -2239,7 +2310,7 @@
       <div class="inner">
         <div class="contact-grid">
           <div class="rv">
-            <h2 class="h2">음료부터 디저트까지,<br><span class="pt">한 번의 상담으로 시작하세요.</span></h2>
+            <h2 class="h2">음료부터 디저트까지,<br><span class="pt">한&nbsp;번의 상담으로 시작하세요.</span></h2>
             <div class="contact-info">
               <p><b>전화</b> 02-6949-4421</p>
               <p><b>이메일</b> bb.superboba@gmail.com</p>
