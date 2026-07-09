@@ -19,5 +19,5 @@
 
 ## 알려진 이슈 (2026-07-09 기준)
 
-- **배포**: GitHub main 푸시 → Cloudflare Pages 자동 배포. **공식 도메인 = `https://superboba.co.kr`** (+www, 2026-07-09 가비아 구입→Cloudflare 연결. 미국 밀크티 브랜드 superboba.com과의 혼동 우려로 superbobas.com에서 교체 — superbobas.com은 리다이렉트용으로 유지). pages.dev 주소 병행 동작.
+- **배포**: GitHub main 푸시 → Cloudflare Pages 자동 배포. **공식 도메인 = `https://superboba.co.kr`** (+www, 2026-07-09 가비아 구입→Cloudflare 연결. 미국 밀크티 브랜드 superboba.com과의 혼동 우려로 superbobas.com에서 교체). superbobas.com은 Pages 연결 해제, **사장님이 팝업 등 다른 용도로 보유 중** — 랜딩 관련해서 재사용하지 말 것. pages.dev 주소 병행 동작.
 - `_*.png` 스크린샷은 확인용 임시 파일 — 커밋하지 않는다.
