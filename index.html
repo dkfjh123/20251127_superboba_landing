@@ -1594,6 +1594,24 @@
       font-weight: 600;
     }
 
+    .form-done {
+      padding: 48px 12px;
+      text-align: center;
+      font-size: 17px;
+      line-height: 1.8;
+      color: #fff;
+    }
+
+    .form-done b {
+      color: var(--cream-2);
+    }
+
+    .form-done .form-done__check {
+      display: block;
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+
     /* ---------- Footer ---------- */
     .footer {
       padding: 56px 0 64px;
@@ -2229,10 +2247,11 @@
             </div>
           </div>
           <div class="form-box rv">
-            <form action="https://formsubmit.co/dkfjh1234@gmail.com" method="POST" id="contactForm">
-              <input type="hidden" name="_subject" value="[슈퍼보바 B2B] 도입 문의">
-              <input type="hidden" name="_captcha" value="false">
-              <input type="hidden" name="_next" id="nextUrl" value="">
+            <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+              <input type="hidden" name="access_key" value="f8bbd957-4264-4e62-ad06-691d172c00d9">
+              <input type="hidden" name="subject" value="[슈퍼보바 B2B] 도입 문의">
+              <input type="hidden" name="from_name" value="슈퍼보바 랜딩페이지">
+              <input type="checkbox" name="botcheck" tabindex="-1" style="display:none" aria-hidden="true">
               <div class="form-field">
                 <label for="f-store">매장명</label>
                 <input type="text" id="f-store" name="매장명" required
@@ -2341,14 +2360,31 @@
       });
     });
 
-    /* 폼 접수 확인 (기존 검증 코드 이식) */
+    /* 폼 전송: AJAX 우선, 실패 시 네이티브 전송 폴백 */
     (function () {
-      var next = document.getElementById('nextUrl');
-      if (next) { next.value = location.origin + location.pathname + '?sent=1#contact'; }
-      if (location.search.indexOf('sent=1') !== -1) {
-        alert('상담 신청이 접수되었습니다.\n대표가 직접 확인하고 빠르게 연락드리겠습니다.');
-        history.replaceState(null, '', location.pathname + '#contact');
-      }
+      var form = document.getElementById('contactForm');
+      if (!form || !window.fetch) return;
+      var fallback = false;
+      form.addEventListener('submit', function (e) {
+        if (fallback) return; /* 폴백 시 브라우저 기본 전송 */
+        e.preventDefault();
+        var btn = form.querySelector('.form-submit');
+        btn.disabled = true;
+        btn.textContent = '전송 중...';
+        /* multipart로 보내면 Web3Forms가 한글 필드명을 깨뜨려 urlencoded로 전송 */
+        fetch(form.action, { method: 'POST', body: new URLSearchParams(new FormData(form)), headers: { 'Accept': 'application/json' } })
+          .then(function (r) { return r.json(); })
+          .then(function (j) {
+            if (!j.success) throw new Error(j.message || 'submit failed');
+            form.innerHTML = '<p class="form-done"><span class="form-done__check">✅</span>상담 신청이 접수되었습니다.<br><b>대표가 직접 확인하고 빠르게 연락드리겠습니다.</b></p>';
+          })
+          .catch(function () {
+            /* 네트워크·봇판정 등 예외 상황: 페이지 이동 방식으로 재전송해 문의 유실 방지 */
+            fallback = true;
+            btn.disabled = false;
+            form.submit();
+          });
+      });
     })();
   </script>
 </body>
