@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://superboba.co.kr/sitemap.xml
