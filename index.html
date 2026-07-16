@@ -12,6 +12,23 @@
     gtag('js', new Date());
     gtag('config', 'G-Z0RXJY3LPV');
   </script>
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1529677671894479');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1529677671894479&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
   <title>슈퍼보바 | 카페를 위한 생보바·슈퍼호두 B2B 전용상품 공급</title>
   <meta name="description" content="매일 삶지 않아도, 슈퍼보바 직영점의 그 맛 그대로. 직영 매장에서 검증된 수제 생보바와 슈퍼호두를 전국 카페에 전용상품으로 공급합니다.">
   <link rel="canonical" href="https://superboba.co.kr/">
@@ -2461,11 +2478,13 @@
           .then(function (j) {
             if (!j.success) throw new Error(j.message || 'submit failed');
             if (window.gtag) gtag('event', 'generate_lead', { transport_type: 'beacon' });
+            if (window.fbq) fbq('track', 'Lead');
             form.innerHTML = '<p class="form-done"><span class="form-done__check">✅</span>상담 신청이 접수되었습니다.<br><b>대표가 직접 확인하고 빠르게 연락드리겠습니다.</b></p>';
           })
           .catch(function () {
             /* 네트워크·봇판정 등 예외 상황: 페이지 이동 방식으로 재전송해 문의 유실 방지 */
             if (window.gtag) gtag('event', 'generate_lead', { transport_type: 'beacon' });
+            if (window.fbq) fbq('track', 'Lead');
             fallback = true;
             btn.disabled = false;
             form.submit();
