@@ -2487,6 +2487,30 @@
   <script>
     /* Design Ref: §2.1 — heroSlides · faqAccordion · formNext · scrollReveal · lazyVideo */
 
+    /* 첫 진입은 항상 히어로부터: 메타 인앱 브라우저가 리드 광고 유입 시
+       문의 폼 근처로 자동 스크롤하는 동작을 상쇄 (사용자가 직접 조작하면 즉시 해제) */
+    (function () {
+      if (location.hash) return; /* #contact 등 앵커 직접 진입은 존중 */
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      function toTop() {
+        var d = document.documentElement, prev = d.style.scrollBehavior;
+        d.style.scrollBehavior = 'auto'; /* smooth 무시하고 즉시 이동 */
+        window.scrollTo(0, 0);
+        d.style.scrollBehavior = prev;
+      }
+      var done = false;
+      ['touchstart', 'wheel', 'pointerdown', 'keydown'].forEach(function (ev) {
+        window.addEventListener(ev, function () { done = true; }, { once: true, passive: true });
+      });
+      toTop();
+      var until = Date.now() + 2500;
+      (function guard() {
+        if (done || Date.now() > until) return;
+        if (window.scrollY > 1) toTop();
+        requestAnimationFrame(guard);
+      })();
+    })();
+
     /* 헤더 스크롤 상태 */
     (function () {
       var h = document.getElementById('header');
