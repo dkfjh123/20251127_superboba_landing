@@ -1,0 +1,490 @@
+<!DOCTYPE html><html lang="ko" class="__variable_93fbe2 font-suit light" style="color-scheme: light; --vh: 100vh; --vw: 1vw;"><head><meta name="robots" content="noindex, nofollow"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style rel="stylesheet" type="text/css">@charset "utf-8";
+
+:where(html[dir="ltr"]), :where([data-sonner-toaster][dir="ltr"]) { --toast-icon-margin-start: -3px; --toast-icon-margin-end: 4px; --toast-svg-margin-start: -1px; --toast-svg-margin-end: 0px; --toast-button-margin-start: auto; --toast-button-margin-end: 0; --toast-close-button-start: 0; --toast-close-button-end: unset; --toast-close-button-transform: translate(-35%, -35%); }
+
+:where(html[dir="rtl"]), :where([data-sonner-toaster][dir="rtl"]) { --toast-icon-margin-start: 4px; --toast-icon-margin-end: -3px; --toast-svg-margin-start: 0px; --toast-svg-margin-end: -1px; --toast-button-margin-start: 0; --toast-button-margin-end: auto; --toast-close-button-start: unset; --toast-close-button-end: 0; --toast-close-button-transform: translate(35%, -35%); }
+
+:where([data-sonner-toaster]) { position: fixed; width: var(--width); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; --gray1: hsl(0, 0%, 99%); --gray2: hsl(0, 0%, 97.3%); --gray3: hsl(0, 0%, 95.1%); --gray4: hsl(0, 0%, 93%); --gray5: hsl(0, 0%, 90.9%); --gray6: hsl(0, 0%, 88.7%); --gray7: hsl(0, 0%, 85.8%); --gray8: hsl(0, 0%, 78%); --gray9: hsl(0, 0%, 56.1%); --gray10: hsl(0, 0%, 52.3%); --gray11: hsl(0, 0%, 43.5%); --gray12: hsl(0, 0%, 9%); --border-radius: 8px; box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; outline: none; z-index: 999999999; transition: transform 0.4s; }
+
+:where([data-sonner-toaster][data-lifted="true"]) { transform: none; }
+
+@media (hover: none) and (pointer: coarse) {
+  :where([data-sonner-toaster][data-lifted="true"]) { transform: none; }
+}
+
+:where([data-sonner-toaster][data-x-position="right"]) { right: var(--offset-right); }
+
+:where([data-sonner-toaster][data-x-position="left"]) { left: var(--offset-left); }
+
+:where([data-sonner-toaster][data-x-position="center"]) { left: 50%; transform: translate(-50%); }
+
+:where([data-sonner-toaster][data-y-position="top"]) { top: var(--offset-top); }
+
+:where([data-sonner-toaster][data-y-position="bottom"]) { bottom: var(--offset-bottom); }
+
+:where([data-sonner-toast]) { --y: translateY(100%); --lift-amount: calc(var(--lift) * var(--gap)); z-index: var(--z-index); position: absolute; opacity: 1; transform: var(--y); filter: blur(0px); touch-action: none; transition: transform 0.4s, opacity 0.4s, height 0.4s, box-shadow 0.2s; box-sizing: border-box; outline: none; overflow-wrap: anywhere; }
+
+:where([data-sonner-toast][data-styled="true"]) { padding: 16px; background: var(--normal-bg); border: 1px solid var(--normal-border); color: var(--normal-text); border-radius: var(--border-radius); box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; width: var(--width); font-size: 13px; display: flex; align-items: center; gap: 6px; }
+
+:where([data-sonner-toast]:focus-visible) { box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px, rgba(0, 0, 0, 0.2) 0px 0px 0px 2px; }
+
+:where([data-sonner-toast][data-y-position="top"]) { top: 0px; --y: translateY(-100%); --lift: 1; --lift-amount: calc(1 * var(--gap)); }
+
+:where([data-sonner-toast][data-y-position="bottom"]) { bottom: 0px; --y: translateY(100%); --lift: -1; --lift-amount: calc(var(--lift) * var(--gap)); }
+
+:where([data-sonner-toast]) :where([data-description]) { font-weight: 400; line-height: 1.4; color: inherit; }
+
+:where([data-sonner-toast]) :where([data-title]) { font-weight: 500; line-height: 1.5; color: inherit; }
+
+:where([data-sonner-toast]) :where([data-icon]) { display: flex; height: 16px; width: 16px; position: relative; justify-content: flex-start; align-items: center; flex-shrink: 0; margin-left: var(--toast-icon-margin-start); margin-right: var(--toast-icon-margin-end); }
+
+:where([data-sonner-toast][data-promise="true"]) :where([data-icon]) > svg { opacity: 1; transform: scale(0.8); transform-origin: center center; animation: 0.3s ease 0s 1 normal forwards running sonner-fade-in; }
+
+:where([data-sonner-toast]) :where([data-icon]) > * { flex-shrink: 0; }
+
+:where([data-sonner-toast]) :where([data-icon]) svg { margin-left: var(--toast-svg-margin-start); margin-right: var(--toast-svg-margin-end); }
+
+:where([data-sonner-toast]) :where([data-content]) { display: flex; flex-direction: column; gap: 2px; }
+
+[data-sonner-toast][data-styled="true"] [data-button] { border-radius: 4px; padding-left: 8px; padding-right: 8px; height: 24px; font-size: 12px; color: var(--normal-bg); background: var(--normal-text); margin-left: var(--toast-button-margin-start); margin-right: var(--toast-button-margin-end); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; outline: none; display: flex; align-items: center; flex-shrink: 0; transition: opacity 0.4s, box-shadow 0.2s; }
+
+:where([data-sonner-toast]) :where([data-button]):focus-visible { box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 0px 2px; }
+
+:where([data-sonner-toast]) :where([data-button]):first-of-type { margin-left: var(--toast-button-margin-start); margin-right: var(--toast-button-margin-end); }
+
+:where([data-sonner-toast]) :where([data-cancel]) { color: var(--normal-text); background: rgba(0, 0, 0, 0.08); }
+
+:where([data-sonner-toast][data-theme="dark"]) :where([data-cancel]) { background: rgba(255, 255, 255, 0.3); }
+
+:where([data-sonner-toast]) :where([data-close-button]) { position: absolute; left: var(--toast-close-button-start); right: var(--toast-close-button-end); top: 0px; height: 20px; width: 20px; display: flex; justify-content: center; align-items: center; padding: 0px; color: var(--gray12); border: 1px solid var(--gray4); transform: var(--toast-close-button-transform); border-radius: 50%; cursor: pointer; z-index: 1; transition: opacity 0.1s, background 0.2s, border-color 0.2s; }
+
+[data-sonner-toast] [data-close-button] { background: var(--gray1); }
+
+:where([data-sonner-toast]) :where([data-close-button]):focus-visible { box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px, rgba(0, 0, 0, 0.2) 0px 0px 0px 2px; }
+
+:where([data-sonner-toast]) :where([data-disabled="true"]) { cursor: not-allowed; }
+
+:where([data-sonner-toast]):hover :where([data-close-button]):hover { background: var(--gray2); border-color: var(--gray5); }
+
+:where([data-sonner-toast][data-swiping="true"])::before { content: ""; position: absolute; left: -50%; right: -50%; height: 100%; z-index: -1; }
+
+:where([data-sonner-toast][data-y-position="top"][data-swiping="true"])::before { bottom: 50%; transform: scaleY(3) translateY(50%); }
+
+:where([data-sonner-toast][data-y-position="bottom"][data-swiping="true"])::before { top: 50%; transform: scaleY(3) translateY(-50%); }
+
+:where([data-sonner-toast][data-swiping="false"][data-removed="true"])::before { content: ""; position: absolute; inset: 0px; transform: scaleY(2); }
+
+:where([data-sonner-toast])::after { content: ""; position: absolute; left: 0px; height: calc(var(--gap) + 1px); bottom: 100%; width: 100%; }
+
+:where([data-sonner-toast][data-mounted="true"]) { --y: translateY(0); opacity: 1; }
+
+:where([data-sonner-toast][data-expanded="false"][data-front="false"]) { --scale: var(--toasts-before) * .05 + 1; --y: translateY(calc(var(--lift-amount) * var(--toasts-before))) scale(calc(-1 * var(--scale))); height: var(--front-toast-height); }
+
+:where([data-sonner-toast]) > * { transition: opacity 0.4s; }
+
+:where([data-sonner-toast][data-expanded="false"][data-front="false"][data-styled="true"]) > * { opacity: 1; }
+
+:where([data-sonner-toast][data-visible="false"]) { opacity: 1; pointer-events: none; }
+
+:where([data-sonner-toast][data-mounted="true"][data-expanded="true"]) { --y: translateY(calc(var(--lift) * var(--offset))); height: var(--initial-height); }
+
+:where([data-sonner-toast][data-removed="true"][data-front="true"][data-swipe-out="false"]) { --y: translateY(calc(var(--lift) * -100%)); opacity: 1; }
+
+:where([data-sonner-toast][data-removed="true"][data-front="false"][data-swipe-out="false"][data-expanded="true"]) { --y: translateY(calc(var(--lift) * var(--offset) + var(--lift) * -100%)); opacity: 1; }
+
+:where([data-sonner-toast][data-removed="true"][data-front="false"][data-swipe-out="false"][data-expanded="false"]) { --y: translateY(40%); opacity: 1; transition: transform 0.5s, opacity 0.2s; }
+
+:where([data-sonner-toast][data-removed="true"][data-front="false"])::before { height: calc(var(--initial-height) + 20%); }
+
+[data-sonner-toast][data-swiping="true"] { transform: var(--y) translateY(var(--swipe-amount-y, 0px)) translate(var(--swipe-amount-x, 0px)); transition: none; }
+
+[data-sonner-toast][data-swiped="true"] { user-select: none; }
+
+[data-sonner-toast][data-swipe-out="true"][data-y-position="bottom"], [data-sonner-toast][data-swipe-out="true"][data-y-position="top"] { animation-duration: 0.2s; animation-timing-function: ease-out; animation-fill-mode: forwards; }
+
+[data-sonner-toast][data-swipe-out="true"][data-swipe-direction="left"] { animation-name: swipe-out-left; }
+
+[data-sonner-toast][data-swipe-out="true"][data-swipe-direction="right"] { animation-name: swipe-out-right; }
+
+[data-sonner-toast][data-swipe-out="true"][data-swipe-direction="up"] { animation-name: swipe-out-up; }
+
+[data-sonner-toast][data-swipe-out="true"][data-swipe-direction="down"] { animation-name: swipe-out-down; }
+
+@keyframes swipe-out-left { 
+  0% { transform: var(--y) translate(var(--swipe-amount-x)); opacity: 1; }
+  100% { transform: var(--y) translate(calc(var(--swipe-amount-x) - 100%)); opacity: 1; }
+}
+
+@keyframes swipe-out-right { 
+  0% { transform: var(--y) translate(var(--swipe-amount-x)); opacity: 1; }
+  100% { transform: var(--y) translate(calc(var(--swipe-amount-x) + 100%)); opacity: 1; }
+}
+
+@keyframes swipe-out-up { 
+  0% { transform: var(--y) translateY(var(--swipe-amount-y)); opacity: 1; }
+  100% { transform: var(--y) translateY(calc(var(--swipe-amount-y) - 100%)); opacity: 1; }
+}
+
+@keyframes swipe-out-down { 
+  0% { transform: var(--y) translateY(var(--swipe-amount-y)); opacity: 1; }
+  100% { transform: var(--y) translateY(calc(var(--swipe-amount-y) + 100%)); opacity: 1; }
+}
+
+@media (max-width: 600px) {
+  [data-sonner-toaster] { position: fixed; right: var(--mobile-offset-right); left: var(--mobile-offset-left); width: 100%; }
+  [data-sonner-toaster][dir="rtl"] { left: calc(var(--mobile-offset-left) * -1); }
+  [data-sonner-toaster] [data-sonner-toast] { left: 0px; right: 0px; width: calc(100% - var(--mobile-offset-left) * 2); }
+  [data-sonner-toaster][data-x-position="left"] { left: var(--mobile-offset-left); }
+  [data-sonner-toaster][data-y-position="bottom"] { bottom: var(--mobile-offset-bottom); }
+  [data-sonner-toaster][data-y-position="top"] { top: var(--mobile-offset-top); }
+  [data-sonner-toaster][data-x-position="center"] { left: var(--mobile-offset-left); right: var(--mobile-offset-right); transform: none; }
+}
+
+[data-sonner-toaster][data-theme="light"] { --normal-bg: #fff; --normal-border: var(--gray4); --normal-text: var(--gray12); --success-bg: hsl(143, 85%, 96%); --success-border: hsl(145, 92%, 91%); --success-text: hsl(140, 100%, 27%); --info-bg: hsl(208, 100%, 97%); --info-border: hsl(221, 91%, 91%); --info-text: hsl(210, 92%, 45%); --warning-bg: hsl(49, 100%, 97%); --warning-border: hsl(49, 91%, 91%); --warning-text: hsl(31, 92%, 45%); --error-bg: hsl(359, 100%, 97%); --error-border: hsl(359, 100%, 94%); --error-text: hsl(360, 100%, 45%); }
+
+[data-sonner-toaster][data-theme="light"] [data-sonner-toast][data-invert="true"] { --normal-bg: #000; --normal-border: hsl(0, 0%, 20%); --normal-text: var(--gray1); }
+
+[data-sonner-toaster][data-theme="dark"] [data-sonner-toast][data-invert="true"] { --normal-bg: #fff; --normal-border: var(--gray3); --normal-text: var(--gray12); }
+
+[data-sonner-toaster][data-theme="dark"] { --normal-bg: #000; --normal-bg-hover: hsl(0, 0%, 12%); --normal-border: hsl(0, 0%, 20%); --normal-border-hover: hsl(0, 0%, 25%); --normal-text: var(--gray1); --success-bg: hsl(150, 100%, 6%); --success-border: hsl(147, 100%, 12%); --success-text: hsl(150, 86%, 65%); --info-bg: hsl(215, 100%, 6%); --info-border: hsl(223, 100%, 12%); --info-text: hsl(216, 87%, 65%); --warning-bg: hsl(64, 100%, 6%); --warning-border: hsl(60, 100%, 12%); --warning-text: hsl(46, 87%, 65%); --error-bg: hsl(358, 76%, 10%); --error-border: hsl(357, 89%, 16%); --error-text: hsl(358, 100%, 81%); }
+
+[data-sonner-toaster][data-theme="dark"] [data-sonner-toast] [data-close-button] { background: var(--normal-bg); border-color: var(--normal-border); color: var(--normal-text); }
+
+[data-sonner-toaster][data-theme="dark"] [data-sonner-toast] [data-close-button]:hover { background: var(--normal-bg-hover); border-color: var(--normal-border-hover); }
+
+[data-rich-colors="true"][data-sonner-toast][data-type="success"], [data-rich-colors="true"][data-sonner-toast][data-type="success"] [data-close-button] { background: var(--success-bg); border-color: var(--success-border); color: var(--success-text); }
+
+[data-rich-colors="true"][data-sonner-toast][data-type="info"], [data-rich-colors="true"][data-sonner-toast][data-type="info"] [data-close-button] { background: var(--info-bg); border-color: var(--info-border); color: var(--info-text); }
+
+[data-rich-colors="true"][data-sonner-toast][data-type="warning"], [data-rich-colors="true"][data-sonner-toast][data-type="warning"] [data-close-button] { background: var(--warning-bg); border-color: var(--warning-border); color: var(--warning-text); }
+
+[data-rich-colors="true"][data-sonner-toast][data-type="error"], [data-rich-colors="true"][data-sonner-toast][data-type="error"] [data-close-button] { background: var(--error-bg); border-color: var(--error-border); color: var(--error-text); }
+
+.sonner-loading-wrapper { --size: 16px; height: var(--size); width: var(--size); position: absolute; inset: 0px; z-index: 10; }
+
+.sonner-loading-wrapper[data-visible="false"] { transform-origin: center center; animation: 0.2s ease 0s 1 normal forwards running sonner-fade-out; }
+
+.sonner-spinner { position: relative; top: 50%; left: 50%; height: var(--size); width: var(--size); }
+
+.sonner-loading-bar { animation: 1.2s linear 0s infinite normal none running sonner-spin; background: var(--gray11); border-radius: 6px; height: 8%; left: -10%; position: absolute; top: -3.9%; width: 24%; }
+
+.sonner-loading-bar:nth-child(1) { animation-delay: -1.2s; transform: rotate(0.0001deg) translate(146%); }
+
+.sonner-loading-bar:nth-child(2) { animation-delay: -1.1s; transform: rotate(30deg) translate(146%); }
+
+.sonner-loading-bar:nth-child(3) { animation-delay: -1s; transform: rotate(60deg) translate(146%); }
+
+.sonner-loading-bar:nth-child(4) { animation-delay: -0.9s; transform: rotate(90deg) translate(146%); }
+
+.sonner-loading-bar:nth-child(5) { animation-delay: -0.8s; transform: rotate(120deg) translate(146%); }
+
+.sonner-loading-bar:nth-child(6) { animation-delay: -0.7s; transform: rotate(150deg) translate(146%); }
+
+.sonner-loading-bar:nth-child(7) { animation-delay: -0.6s; transform: rotate(180deg) translate(146%); }
+
+.sonner-loading-bar:nth-child(8) { animation-delay: -0.5s; transform: rotate(210deg) translate(146%); }
+
+.sonner-loading-bar:nth-child(9) { animation-delay: -0.4s; transform: rotate(240deg) translate(146%); }
+
+.sonner-loading-bar:nth-child(10) { animation-delay: -0.3s; transform: rotate(270deg) translate(146%); }
+
+.sonner-loading-bar:nth-child(11) { animation-delay: -0.2s; transform: rotate(300deg) translate(146%); }
+
+.sonner-loading-bar:nth-child(12) { animation-delay: -0.1s; transform: rotate(330deg) translate(146%); }
+
+@keyframes sonner-fade-in { 
+  0% { opacity: 1; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes sonner-fade-out { 
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 1; transform: scale(0.8); }
+}
+
+@keyframes sonner-spin { 
+  0% { opacity: 1; }
+  100% { opacity: 0.15; }
+}
+
+@media (prefers-reduced-motion) {
+  [data-sonner-toast], [data-sonner-toast] > *, .sonner-loading-bar { transition: none !important; animation: auto ease 0s 1 normal none running none !important; }
+}
+
+.sonner-loader { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); transform-origin: center center; transition: opacity 0.2s, transform 0.2s; }
+
+.sonner-loader[data-visible="false"] { opacity: 1; transform: scale(0.8) translate(-50%, -50%); }</style><style rel="stylesheet" type="text/css">@charset "utf-8";
+
+.medium-zoom-overlay { position: fixed; inset: 0px; opacity: 1; transition: opacity 0.3s; will-change: opacity; }
+
+.medium-zoom--opened .medium-zoom-overlay { cursor: zoom-out; opacity: 1; }
+
+.medium-zoom-image { cursor: zoom-in; transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1) !important; }
+
+.medium-zoom-image--hidden { visibility: hidden; }
+
+.medium-zoom-image--opened { position: relative; cursor: zoom-out; will-change: transform; }</style><style rel="stylesheet" type="text/css">@charset "utf-8";
+
+@keyframes _spin_evhv6_1 { 
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes _wave_evhv6_1 { 
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(20deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes _heartBeat_evhv6_1 { 
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+@keyframes _flash_evhv6_1 { 
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0.2; }
+}
+
+@keyframes _bounce_evhv6_1 { 
+  0%, 20%, 53%, 100% { transform: translate(0px, 0px); }
+  40%, 43% { transform: none;scaleY(1.1); }
+  70% { transform: none;scaleY(1.05); }
+  80% { transform: translate(0px, 0px) scaleY(0.95); }
+  90% { transform: none;scaleY(1.02); }
+}
+
+@keyframes _rubberBand_evhv6_1 { 
+  0% { transform: scale(1); }
+  30% { transform: scale(1.25, 0.75); }
+  40% { transform: scale(0.75, 1.25); }
+  50% { transform: scale(1.15, 0.85); }
+  65% { transform: scale(0.95, 1.05); }
+  75% { transform: scale(1.05, 0.95); }
+  100% { transform: scale(1); }
+}
+
+@keyframes _headShake_evhv6_1 { 
+  0% { transform: translate(0px); }
+  6.5% { transform: translate(-6px) rotateY(-9deg); }
+  18.5% { transform: translate(5px) rotateY(7deg); }
+  31.5% { transform: translate(-3px) rotateY(-5deg); }
+  43.5% { transform: translate(2px) rotateY(3deg); }
+  50% { transform: translate(0px); }
+}
+
+@keyframes _tada_evhv6_1 { 
+  0% { transform: scale(1); }
+  10%, 20% { transform: scale3d(0.9, 0.9, 0.9) rotate(-3deg); }
+  30%, 50%, 70%, 90% { transform: scale3d(1.1, 1.1, 1.1) rotate(3deg); }
+  40%, 60%, 80% { transform: scale3d(1.1, 1.1, 1.1) rotate(-3deg); }
+  100% { transform: scale(1); }
+}
+
+._overlay_evhv6_157 { z-index: 1000000006; background-color: rgba(15, 15, 15, 0.6); justify-content: center; align-items: center; display: flex; position: fixed; inset: 0px; }
+
+._layoutDefault_evhv6_170 { z-index: 2147483000; opacity: 1; background-color: rgba(0, 0, 0, 0); border-radius: 5px; width: auto; max-width: 95vw; height: auto; display: flex; position: fixed; bottom: 20px; right: 20px; box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px; }
+
+._layoutModal_evhv6_186 { z-index: 2147483000; opacity: 1; background-color: rgba(0, 0, 0, 0); border-radius: 5px; width: 700px; max-width: 95vw; height: auto; display: flex; position: relative; box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px; }
+
+._popupContainer_evhv6_200 { border-radius: 5px; width: 100%; display: flex; overflow-y: auto; }
+
+._popupContainer_evhv6_200 iframe { border-radius: 5px; max-height: 95vh; }
+
+._loadingIndicator_evhv6_212 { z-index: 2147483000; color: rgb(68, 68, 68); background-color: rgb(245, 245, 245); border-radius: 50%; justify-content: center; align-items: center; width: 50px; height: 50px; display: inline-flex; position: absolute; }
+
+._loadingIndicatorNoOverlay_evhv6_225 { position: fixed; bottom: 10px; right: 10px; }
+
+._loadingIndicator_evhv6_212 svg { width: 20px; height: 20px; animation: 1.618s linear 0s infinite normal none running _spin_evhv6_1; }
+
+._emoji_evhv6_237 { font-size: 42px; line-height: 1; display: inline-block; position: absolute; top: -21px; left: -21px; }
+
+._animate__wave_evhv6_246 { animation: 1s ease-in-out 0s 20 normal none running _wave_evhv6_1; }
+
+._animate__heart-beat_evhv6_250 { animation: 1.3s ease-in-out 0s 20 normal none running _heartBeat_evhv6_1; }
+
+._animate__flash_evhv6_254 { animation: 2.5s ease 0s 20 normal none running _flash_evhv6_1; }
+
+._animate__bounce_evhv6_258 { transform-origin: center bottom; animation: 1.5s ease 0s 20 normal none running _bounce_evhv6_1; }
+
+._animate__rubber-band_evhv6_263 { animation: 1.5s ease 0s 20 normal none running _rubberBand_evhv6_1; }
+
+._animate__head-shake_evhv6_267 { animation: 1.5s ease-in-out 0s 20 normal none running _headShake_evhv6_1; }
+
+._animate__tada_evhv6_271 { animation: 1.5s ease 0s 20 normal none running _tada_evhv6_1; }
+
+._animate__spin_evhv6_275 { animation: 1.618s linear 0s 20 normal none running _spin_evhv6_1; }
+
+@media (height <= 1000px) {
+  ._popupContainer_evhv6_200 iframe { max-height: 85vh; }
+}
+
+@media (width <= 576px) {
+  ._popupContainer_evhv6_200 iframe { max-height: 70vh; }
+  ._layoutDefault_evhv6_170, ._layoutModal_evhv6_186 { max-width: calc(100% - 40px); }
+}</style><style rel="stylesheet" type="text/css">@charset "utf-8";
+
+.qJTHM { user-select: none; color: rgb(32, 33, 36); direction: ltr; font-family: Roboto-Regular, arial, sans-serif; -webkit-font-smoothing: antialiased; font-weight: 400; margin: 0px; overflow: hidden; text-size-adjust: 100%; }
+
+.ynRLnc { left: -9999px; position: absolute; top: -9999px; }
+
+.L6cTce { display: none; }
+
+.bltWBb { overflow-wrap: break-word; word-break: break-word; }
+
+.hSRGPd { color: rgb(26, 115, 232); cursor: pointer; font-weight: 500; text-decoration: none; }
+
+.Bz112c-W3lGp { height: 16px; width: 16px; }
+
+.Bz112c-E3DyYd { height: 20px; width: 20px; }
+
+.Bz112c-r9oPif { height: 24px; width: 24px; }
+
+.Bz112c-u2z5K { height: 36px; width: 36px; }
+
+.Bz112c-uaxL4e { border-radius: 10px; }
+
+.LgbsSe-Bz112c { display: block; }
+
+.S9gUrf-YoZ4jf { border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; margin: 0px; padding: 0px; }
+
+.S9gUrf-YoZ4jf * { border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; margin: 0px; padding: 0px; }
+
+.fFW7wc-ibnC6b > .aZ2wEe > div { border-color: rgb(66, 133, 244); }
+
+.P1ekSe-ZMv3u { transition: height 0.2s linear; }
+
+.P1ekSe-ZMv3u > div:first-child { transition: width 0.3s linear; background-color: rgb(26, 115, 232) !important; }
+
+.P1ekSe-ZMv3u > div:nth-child(2) { background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(90deg, rgb(26, 115, 232), rgb(26, 115, 232)) !important; }
+
+.P1ekSe-ZMv3u > div:nth-child(3) { background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(90deg, rgb(26, 115, 232), rgb(26, 115, 232)) !important; }
+
+.haAclf { display: inline-block; }
+
+.nsm7Bb-HzV7m-LgbsSe { border-radius: 4px; box-sizing: border-box; transition: background-color 0.218s, border-color 0.218s; user-select: none; appearance: none; background-color: rgb(255, 255, 255); background-image: none; border: 1px solid rgb(218, 220, 224); color: rgb(60, 64, 67); cursor: pointer; font-family: "Google Sans", arial, sans-serif; font-size: 0.875rem; height: 40px; letter-spacing: 0.25px; outline: none; overflow: hidden; padding: 0px 12px; position: relative; text-align: center; vertical-align: middle; white-space: nowrap; width: auto; }
+
+@media screen and (-ms-high-contrast:active) {
+  .nsm7Bb-HzV7m-LgbsSe { border: 2px solid windowtext; color: windowtext; }
+}
+
+@media screen and (preferes-contrast:more) {
+  .nsm7Bb-HzV7m-LgbsSe { color: rgb(0, 0, 0); }
+}
+
+.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe { font-size: 0.875rem; height: 32px; letter-spacing: 0.25px; padding: 0px 10px; }
+
+.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe { font-size: 0.6875rem; height: 20px; letter-spacing: 0.3px; padding: 0px 8px; }
+
+.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe { padding: 0px; width: 40px; }
+
+.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.pSzOP-SxQuSe { width: 32px; }
+
+.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.purZT-SxQuSe { width: 20px; }
+
+.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK { border-radius: 20px; }
+
+.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK.pSzOP-SxQuSe { border-radius: 16px; }
+
+.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK.purZT-SxQuSe { border-radius: 10px; }
+
+.nsm7Bb-HzV7m-LgbsSe.i5vt6e-to915-Ia7Qfc { border: 1px solid rgb(142, 145, 143); background-color: rgb(19, 19, 20); color: rgb(227, 227, 227); }
+
+.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc { border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; color: rgb(255, 255, 255); }
+
+.nsm7Bb-HzV7m-LgbsSe.MFS4be-v3pZbf-Ia7Qfc { background-color: rgb(26, 115, 232); }
+
+.nsm7Bb-HzV7m-LgbsSe.MFS4be-JaPV2b-Ia7Qfc { background-color: rgb(32, 33, 36); color: rgb(232, 234, 237); }
+
+@media screen and (prefers-contrast: more) {
+  .nsm7Bb-HzV7m-LgbsSe.MFS4be-JaPV2b-Ia7Qfc { color: rgb(255, 255, 255); }
+}
+
+.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c { height: 18px; margin-right: 8px; min-width: 18px; width: 18px; }
+
+.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c { height: 14px; min-width: 14px; width: 14px; }
+
+.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c { height: 10px; min-width: 10px; width: 10px; }
+
+.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-Bz112c { margin-left: 8px; margin-right: -4px; }
+
+.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c { margin: 0px; padding: 10px; }
+
+.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c { padding: 8px; }
+
+.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c { padding: 4px; }
+
+.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf { border-top-left-radius: 3px; border-bottom-left-radius: 3px; display: flex; -webkit-box-pack: center; justify-content: center; -webkit-box-align: center; align-items: center; background-color: rgb(255, 255, 255); height: 36px; margin-left: -10px; margin-right: 12px; min-width: 36px; width: 36px; }
+
+.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf .nsm7Bb-HzV7m-LgbsSe-Bz112c, .nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf .nsm7Bb-HzV7m-LgbsSe-Bz112c { margin: 0px; padding: 0px; }
+
+.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf { height: 28px; margin-left: -8px; margin-right: 10px; min-width: 28px; width: 28px; }
+
+.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf { height: 16px; margin-left: -6px; margin-right: 8px; min-width: 16px; width: 16px; }
+
+.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf { border-radius: 3px; margin-left: 2px; margin-right: 0px; padding: 0px; }
+
+.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf { border-radius: 18px; }
+
+.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf { border-radius: 14px; }
+
+.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf { border-radius: 8px; }
+
+.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-bN97Pc-sM5MNb { display: flex; -webkit-box-align: center; align-items: center; -webkit-box-orient: horizontal; -webkit-box-direction: normal; flex-flow: row; -webkit-box-pack: justify; justify-content: space-between; height: 100%; position: relative; width: 100%; }
+
+.nsm7Bb-HzV7m-LgbsSe .oXtfBe-l4eHX { -webkit-box-pack: center; justify-content: center; }
+
+.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-BPrWId { -webkit-box-flex: 1; flex-grow: 1; font-family: "Google Sans", arial, sans-serif; font-weight: 500; overflow: hidden; text-overflow: ellipsis; vertical-align: top; }
+
+.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-BPrWId { font-weight: 300; }
+
+.nsm7Bb-HzV7m-LgbsSe .oXtfBe-l4eHX .nsm7Bb-HzV7m-LgbsSe-BPrWId { -webkit-box-flex: 0; flex-grow: 0; }
+
+.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-MJoBVe { transition: background-color 0.218s; inset: 0px; position: absolute; }
+
+.nsm7Bb-HzV7m-LgbsSe:focus, .nsm7Bb-HzV7m-LgbsSe:hover { box-shadow: none; border-color: rgb(210, 227, 252); outline: none; }
+
+.nsm7Bb-HzV7m-LgbsSe:focus-within { outline: rgb(0, 99, 155) solid 2px; border-color: transparent; }
+
+.nsm7Bb-HzV7m-LgbsSe:hover .nsm7Bb-HzV7m-LgbsSe-MJoBVe { background: rgba(66, 133, 244, 0.08); }
+
+.nsm7Bb-HzV7m-LgbsSe:active .nsm7Bb-HzV7m-LgbsSe-MJoBVe, .nsm7Bb-HzV7m-LgbsSe:focus .nsm7Bb-HzV7m-LgbsSe-MJoBVe { background: rgba(66, 133, 244, 0.1); }
+
+.nsm7Bb-HzV7m-LgbsSe.i5vt6e-to915-Ia7Qfc:hover .nsm7Bb-HzV7m-LgbsSe-MJoBVe { background: rgba(255, 255, 255, 0.08); }
+
+.nsm7Bb-HzV7m-LgbsSe.i5vt6e-to915-Ia7Qfc:active .nsm7Bb-HzV7m-LgbsSe-MJoBVe, .nsm7Bb-HzV7m-LgbsSe.i5vt6e-to915-Ia7Qfc:focus .nsm7Bb-HzV7m-LgbsSe-MJoBVe { background: rgba(255, 255, 255, 0.12); }
+
+.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:hover .nsm7Bb-HzV7m-LgbsSe-MJoBVe { background: rgba(255, 255, 255, 0.24); }
+
+.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:active .nsm7Bb-HzV7m-LgbsSe-MJoBVe, .nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:focus .nsm7Bb-HzV7m-LgbsSe-MJoBVe { background: rgba(255, 255, 255, 0.32); }
+
+.nsm7Bb-HzV7m-LgbsSe .n1UuX-DkfjY { border-radius: 50%; display: flex; height: 20px; margin-left: -4px; margin-right: 8px; min-width: 20px; width: 20px; }
+
+.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId { font-family: Roboto; font-size: 12px; text-align: left; }
+
+.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff .fmcmS, .nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .ssJRIf { overflow: hidden; text-overflow: ellipsis; }
+
+.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff { display: flex; -webkit-box-align: center; align-items: center; color: rgb(95, 99, 104); fill: rgb(95, 99, 104); font-size: 11px; font-weight: 400; }
+
+.nsm7Bb-HzV7m-LgbsSe.jVeSEe.i5vt6e-to915-Ia7Qfc .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff { color: rgb(196, 199, 197); fill: rgb(196, 199, 197); }
+
+.nsm7Bb-HzV7m-LgbsSe.jVeSEe.MFS4be-Ia7Qfc .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff { color: rgb(232, 234, 237); fill: rgb(232, 234, 237); }
+
+@media screen and (prefers-contrast: more) {
+  .nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff, .nsm7Bb-HzV7m-LgbsSe.jVeSEe.MFS4be-Ia7Qfc .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff { color: rgb(0, 0, 0); fill: rgb(0, 0, 0); }
+}
+
+.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff .Bz112c { height: 18px; margin: -3px -3px -3px 2px; min-width: 18px; width: 18px; }
+
+.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf { border-radius: 0px 3px 3px 0px; margin-left: 12px; margin-right: -10px; }
+
+.nsm7Bb-HzV7m-LgbsSe.jVeSEe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf { border-radius: 18px; }
+
+.L5Fo6c-sM5MNb { border: 0px; display: block; left: 0px; position: relative; top: 0px; }
+
+.L5Fo6c-bF1uUb { border-radius: 4px; inset: 0px; cursor: pointer; position: absolute; }
+
+.L5Fo6c-bF1uUb:focus { border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; outline: none; }
+
+sentinel { }</style><meta name="twitter:card" content="summary_large_image"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"><title>슈퍼보바 공급 안내 — 국내최초 생보바</title><meta name="description" content="국내최초 생보바 · 모리셔스산 흑당소스 · 슈퍼보바 개발 OEM 상품 — 문의 주신 사장님께 드리는 공급 안내"><meta property="og:title" content="슈퍼보바 공급 안내 — 국내최초 생보바"><meta property="og:description" content="국내최초 생보바 · 모리셔스산 흑당소스 · 슈퍼보바 개발 OEM 상품 — 문의 주신 사장님께 드리는 공급 안내"><meta property="og:url" content="https://superboba.co.kr/offer/"><meta property="og:type" content="website"><meta property="og:image" content="https://superboba.co.kr/offer/assets/superboba-logo.png"><meta property="og:image:alt" content="Latpeed"><meta property="og:image:width" content="285"><meta property="og:image:height" content="167"><meta property="og:locale" content="ko_KR"><meta property="og:site_name" content="Latpeed"><meta name="next-head-count" content="25"><link rel="preload" href="https://www.latpeed.com/_next/static/media/090f7270972fe9d0-s.p.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-next-font="size-adjust"><link rel="preload" href="https://www.latpeed.com/_next/static/media/63be5f826af289be-s.p.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-next-font="size-adjust"><link rel="preload" href="https://www.latpeed.com/_next/static/media/24a0b501b85a6a2d-s.p.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-next-font="size-adjust"><link rel="preload" href="assets/latpeed.css" as="style"><link rel="stylesheet" href="assets/latpeed.css" data-n-g=""><noscript data-n-css=""></noscript><style>/* static-mirror fix: restart marquees */ div[aria-hidden="true"] > div.flex.w-max { animation: sbMarquee 45s linear infinite; } @keyframes sbMarquee { to { transform: translateX(-50%); } }</style></head><body><div id="__next"><div class="w-full h-dvh __variable_93fbe2"><main class="flex flex-col items-center w-full"><section class="relative flex w-full flex-col items-center justify-center overflow-hidden min-h-[600px] over-tablet:min-h-[1000px]" style="background-image:linear-gradient(180deg, rgba(255,255,255,0.86) 0%, rgba(255,255,255,0.62) 48%, rgba(255,255,255,0.96) 100%), url(&#39;assets/dough-bg.jpg&#39;);background-size:cover;background-position:center;background-repeat:no-repeat"><div class="absolute z-10 top-[38px] left-0 pl-[26px] over-foldable:pl-[38px] over-tablet:pl-[142px]" style="right:0;display:flex;justify-content:center;padding:0"><a href="https://superboba.co.kr"><img src="assets/superboba-logo.png" alt="슈퍼보바 홈" draggable="false" class="under-tablet:hidden" style="width:200px;height:auto"><img src="assets/superboba-logo.png" alt="슈퍼보바 홈" draggable="false" class="hidden under-tablet:block" style="width:175px;height:auto"></a></div><div class="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 select-none over-web:w-[1000px] over-web:h-[560px] over-tablet:w-[1000px] over-tablet:h-[520px] w-[480px] h-[260px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(255,255,255,0.00)_0%,rgba(255,238,224,0.08)_55.19%,#fff49d_73.52%,#fa541c_93.64%)] blur-[50px] over-tablet:bg-[radial-gradient(50%_50%_at_50%_50%,rgba(255,255,255,0.00)_0%,rgba(255,238,224,0.08)_55.19%,#fff49d_73.52%,#fa541c_93.64%)] over-tablet:blur-[104px] over-web:bg-[radial-gradient(52.1%_50%_at_50%_50%,rgba(255,255,255,0.00)_0%,rgba(255,238,224,0.08)_48.99%,#fff49d_72.67%,#fa541c_97.92%)]" style="opacity:.3"></div><div class="relative z-10 flex w-full flex-col items-center gap-16 over-tablet:gap-24"><div class="flex w-full flex-col items-center gap-10 over-tablet:gap-[60px] over-web:gap-10"><div class="bg-[#FF7716] flex items-center justify-center rounded-full py-2 px-4 over-tablet:px-7 over-tablet:py-3"><span class="tg-medium-20 text-static-white under-tablet:tg-medium-12">국내 생산 · 국내 제조 | 슈퍼보바 개발 OEM</span></div><div class="flex w-full flex-col items-center gap-2 over-tablet:gap-0"><p class="text-center font-[Pretendard] font-bold text-[#342f2c] text-[36px] over-tablet:text-[64px] over-web:text-[78px]">슈퍼보바가 준비한</p><div class="relative w-full overflow-clip h-[70px] over-tablet:h-[174px] over-web:h-[225px]"><span class="sr-only">국내최초 생보바</span><div aria-hidden="true" class="absolute left-0 right-0 top-1/2 -translate-y-1/2"><div class="flex w-max items-center gap-16 over-tablet:gap-24 over-web:gap-[250px]" style="transform: translateX(-4.65074px) translateZ(0px);"><div class="font-[InkLipquid] whitespace-nowrap text-[52px] leading-[1.33] over-tablet:text-[112px] over-tablet:leading-[1.5] over-web:text-[140px]" style="color: rgb(185,57,54);">국내최초 생보바</div><div class="font-[InkLipquid] whitespace-nowrap text-[52px] leading-[1.33] over-tablet:text-[112px] over-tablet:leading-[1.5] over-web:text-[140px]" style="color: rgb(185,57,54);">모리셔스산 흑당</div><div class="font-[InkLipquid] whitespace-nowrap text-[52px] leading-[1.33] over-tablet:text-[112px] over-tablet:leading-[1.5] over-web:text-[140px]" style="color: rgb(185,57,54);">흑당소스</div><div class="font-[InkLipquid] whitespace-nowrap text-[52px] leading-[1.33] over-tablet:text-[112px] over-tablet:leading-[1.5] over-web:text-[140px]" style="color: rgb(185,57,54);">국내 생산 · 제조</div><div class="font-[InkLipquid] whitespace-nowrap text-[52px] leading-[1.33] over-tablet:text-[112px] over-tablet:leading-[1.5] over-web:text-[140px]" style="color: rgb(185,57,54);">개발 OEM 상품</div><div class="font-[InkLipquid] whitespace-nowrap text-[52px] leading-[1.33] over-tablet:text-[112px] over-tablet:leading-[1.5] over-web:text-[140px]" style="color: rgb(185,57,54);">생보바 판매</div><div class="font-[InkLipquid] whitespace-nowrap text-[52px] leading-[1.33] over-tablet:text-[112px] over-tablet:leading-[1.5] over-web:text-[140px]" style="color: rgb(209,6,2);">매일 반죽</div><div class="font-[InkLipquid] whitespace-nowrap text-[52px] leading-[1.33] over-tablet:text-[112px] over-tablet:leading-[1.5] over-web:text-[140px]" style="color: rgb(209,15,12);">직영점 검증</div><div class="font-[InkLipquid] whitespace-nowrap text-[52px] leading-[1.33] over-tablet:text-[112px] over-tablet:leading-[1.5] over-web:text-[140px]" style="color: rgb(185,57,54);">국내최초 생보바</div><div class="font-[InkLipquid] whitespace-nowrap text-[52px] leading-[1.33] over-tablet:text-[112px] over-tablet:leading-[1.5] over-web:text-[140px]" style="color: rgb(185,57,54);">모리셔스산 흑당</div><div class="font-[InkLipquid] whitespace-nowrap text-[52px] leading-[1.33] over-tablet:text-[112px] over-tablet:leading-[1.5] over-web:text-[140px]" style="color: rgb(185,57,54);">흑당소스</div><div class="font-[InkLipquid] whitespace-nowrap text-[52px] leading-[1.33] over-tablet:text-[112px] over-tablet:leading-[1.5] over-web:text-[140px]" style="color: rgb(185,57,54);">국내 생산 · 제조</div><div class="font-[InkLipquid] whitespace-nowrap text-[52px] leading-[1.33] over-tablet:text-[112px] over-tablet:leading-[1.5] over-web:text-[140px]" style="color: rgb(185,57,54);">개발 OEM 상품</div></div></div></div></div></div><div class="flex flex-col items-center text-center gap-1 over-tablet:gap-2"><p class="text-[#7e6f66] tg-medium-16 over-tablet:tg-h3 over-tablet:tracking-normal">직영점에서 검증한 재료 공급부터</p><p class="text-[#23211f] tg-bold-20 over-tablet:tg-h3">사장님 카페의 시그니처 메뉴 컨설팅까지</p></div></div></section><section class="relative flex w-full flex-col items-center gap-[60px] overflow-hidden pb-[32px] over-tablet:pb-[60px] over-web:gap-[100px]" style="background-image:linear-gradient(173deg, rgba(255,255,255, 0.30) 70.44%, rgba(255,255,255, 0.85) 91.99%)"><div class="relative flex w-full flex-col justify-end items-center h-[420px] gap-[100px] over-web:h-[700px] over-tablet:h-[550px]  over-web:gap-[160px] over-tablet:gap-[108px]" style="background-image:linear-gradient(180deg, rgba(255,255,255,.6) 0%, rgba(255,255,255,.22) 38%, rgba(255,255,255,.86) 74%, #ffffff 94%), url(&#39;assets/pearl-band.jpg&#39;);background-position:center 32%;background-size:cover;background-repeat:no-repeat"><div></div><div class="flex flex-col items-center gap-2"><p class="font-[Pretendard] text-[24px] font-semibold leading-[100%] tracking-[-1.2px] over-tablet:text-[36px] over-tablet:tracking-[-1.8px] over-web:text-[45px] over-web:tracking-[-2.6px]" style="background:linear-gradient(0deg, #e21f19 8.09%, #f4837d 94.95%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">국내최초</p><p class="font-[Pretendard] text-[84px] font-extrabold leading-[100%] tracking-[-4.2px] over-tablet:text-[140px] over-tablet:tracking-[-7px] over-web:text-[160px] over-web:tracking-[-9px]" style="background:linear-gradient(0deg, #e21f19 8.09%, #f4837d 94.95%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">생보바</p></div><div class="flex flex-col items-center gap-2"><p class="text-center text-[16px] font-bold leading-[24px] tracking-[-0.32px] text-[#ff7716] over-tablet:text-[20px] over-tablet:tracking-[-0.4px] over-web:tg-h3 over-web:text-[28px] over-web:tracking-normal">슈퍼보바 직영점</p><p class="text-center tg-bold-24 text-[#23211f] over-tablet:tg-h3 over-web:text-[36px]">삼성본점과 갤러리아 압구정점에서</p><p class="text-center tg-bold-24 text-[#23211f] over-tablet:tg-h3 over-web:text-[36px]">매일 시그니처로 손님을 맞고 있어요</p></div></div><div style="width:100%;display:flex;justify-content:center;padding:26px 22px 8px"><video src="assets/store-wait.mp4" poster="assets/store-wait-poster.jpg" autoplay muted loop playsinline preload="metadata" style="width:100%;max-width:440px;border-radius:18px;box-shadow:0 12px 30px rgba(120,60,40,.14);display:block"></video></div><div class="relative flex flex-col items-center gap-2 text-center"><p class="tg-bold-24 text-[#23211f] over-tablet:tg-h3 over-web:text-[36px]">슈퍼보바 파트너만 받을 수 있는</p><p class="tg-bold-24 text-[#23211f] over-tablet:tg-h3 over-web:text-[36px]">공급 상품을 지금 공개합니다</p></div><div class="relative flex flex-col items-center"><div class="h-[120px] w-[2px] bg-[#ff7716] shadow-[0px_0px_50px_0px_#ff9027] over-tablet:h-[240px] over-web:h-[320px]"></div><div class="-mt-[5px] size-[11px] rounded-full bg-[#ff7716] shadow-[0px_0px_30px_0px_#ff9027]"></div></div></section><section class="relative flex w-full flex-col items-center gap-10 overflow-hidden bg-[#ffe1b8]/85 px-5 py-[60px] over-tablet:gap-20 over-tablet:px-10 over-tablet:pb-[120px] over-web:gap-[100px] over-web:px-[120px] over-web:pt-[80px] over-web:pb-[160px]"><div class="relative flex w-fit items-center justify-center rounded-[33px] border-[1.5px] border-[#ff9027] bg-white/50 px-5 py-2 backdrop-blur-[50px] over-web:rounded-[56px] over-web:border-2 over-web:px-10 over-web:py-4"><span class="whitespace-nowrap text-[13px] font-bold leading-4 tracking-[-0.26px] text-[#ff9027] over-tablet:tg-bold-20 over-tablet:tracking-normal">슈퍼보바 공급 라인업</span></div><div class="relative flex flex-col items-center gap-3 over-tablet:gap-10 over-web:gap-[60px]"><h2 class="tg-h3 flex flex-col gap-2 text-center over-tablet:tg-h2 over-tablet:gap-3 over-web:tg-h1 over-web:gap-4"><span class="block text-[#23211f]">슈퍼보바는 사장님 매장에</span><span class="block text-[#ff7716]">이런 것들을 공급합니다</span></h2><p class="tg-medium-16 text-center text-[#7e6f66] over-tablet:text-[24px] over-tablet:font-normal over-tablet:leading-[1.4] over-tablet:tracking-normal over-web:whitespace-nowrap over-web:font-medium">펄부터 흑당베이스·청·티·파우더까지<br class="over-web:hidden"> 공급 라인업을 정리했어요</p></div><div class="relative flex w-full max-w-[720px] flex-col items-center gap-6 over-web:max-w-[1080px] over-web:gap-9"><div class="relative flex flex-col items-center gap-6 rounded-[24px] p-5 over-tablet:flex-row over-tablet:items-stretch over-tablet:gap-9 over-tablet:p-7 over-web:gap-9 over-web:rounded-[32px] over-web:p-10 cursor-pointer w-full" style="background:radial-gradient(79.97% 497.42% at 91.35% 100.09%,rgba(255,255,255,0.6),rgba(255,255,255,0.85)),#ffffff;box-shadow:0 4px 15px 0 rgba(126,111,102,0.2)"><div class="flex w-full flex-col items-center gap-4 over-tablet:flex-1 over-tablet:items-start over-tablet:justify-center over-tablet:self-stretch over-web:gap-5"><h3 class="tg-bold-20 flex w-full flex-col items-center gap-1 text-center text-[#342f2c] over-tablet:tg-bold-24 over-tablet:flex-1 over-tablet:items-start over-tablet:text-left over-web:gap-2 over-web:text-[32px] over-web:leading-[1.2]"><span>국내최초 생보바를</span><span>매장으로 공급합니다</span></h3></div><div class="flex w-full shrink-0 items-center justify-center over-tablet:w-auto"><img src="assets/product-boba.jpg" alt="국내최초 생보바" draggable="false" class="size-[240px] object-contain over-tablet:size-[260px] over-web:size-[380px]" style="border-radius:18px;object-fit:cover"></div><div style="width:100%;text-align:center;margin-top:10px"><p style="font-size:13px;color:#7a6e68;font-weight:600">탱글함이 아닌 진짜 쫄깃함 — 흑당 생보바 밀크티 같은 시그니처, 사장님 매장에도 가능합니다</p></div></div><div class="relative flex flex-col items-center gap-6 rounded-[24px] p-5 over-tablet:flex-row over-tablet:items-stretch over-tablet:gap-9 over-tablet:p-7 over-web:gap-9 over-web:rounded-[32px] over-web:p-10 cursor-pointer w-full over-tablet:max-w-[648px] over-web:max-w-[960px]" style="background:radial-gradient(79.97% 497.42% at 91.35% 100.09%,rgba(255,255,255,0.6),rgba(255,255,255,0.85)),#ffffff;box-shadow:0 4px 15px 0 rgba(126,111,102,0.2)"><div class="flex w-full flex-col items-center gap-4 over-tablet:flex-1 over-tablet:items-start over-tablet:justify-center over-tablet:self-stretch over-web:gap-5"><h3 class="tg-bold-20 flex w-full flex-col items-center gap-1 text-center text-[#342f2c] over-tablet:tg-bold-24 over-tablet:flex-1 over-tablet:items-start over-tablet:text-left over-web:gap-2 over-web:text-[32px] over-web:leading-[1.2]"><span>모리셔스산 원당으로 끓인</span><span>흑당베이스를 공급합니다</span></h3></div><div class="flex w-full shrink-0 items-center justify-center over-tablet:w-auto"><img src="assets/product-blacksugar.jpg" alt="모리셔스산 원당을 끓여 만든 흑당" style="border-radius:18px" draggable="false" class="h-auto w-[272px] max-w-full object-contain over-tablet:h-[224px] over-tablet:w-[280px] over-web:h-[380px] over-web:w-[400px]"></div><div style="width:100%;text-align:center;margin-top:10px"><p style="font-size:13px;color:#7a6e68;font-weight:600">모리셔스 비정제 원당의 깊고 자연스러운 단맛 — 매장의 흑당 시그니처 메뉴가 완성됩니다</p></div></div><div class="relative flex flex-col items-center gap-6 rounded-[24px] p-5 over-tablet:flex-row over-tablet:items-stretch over-tablet:gap-9 over-tablet:p-7 over-web:gap-9 over-web:rounded-[32px] over-web:p-10 cursor-pointer w-full over-tablet:max-w-[576px] over-web:max-w-[840px]" style="background:radial-gradient(79.97% 497.42% at 91.35% 100.09%,rgba(255,255,255,0.6),rgba(255,255,255,0.85)),#ffffff;box-shadow:0 4px 15px 0 rgba(126,111,102,0.2)"><div class="flex w-full flex-col items-center gap-4 over-tablet:flex-1 over-tablet:items-start over-tablet:justify-center over-tablet:self-stretch over-web:gap-5"><h3 class="tg-bold-20 flex w-full flex-col items-center gap-1 text-center text-[#342f2c] over-tablet:tg-bold-24 over-tablet:flex-1 over-tablet:items-start over-tablet:text-left over-web:gap-2 over-web:text-[32px] over-web:leading-[1.2]"><span>100% 쌀반죽 슈퍼호두</span><span>반죽·호두분태·팥앙금 공급</span></h3></div><div class="flex w-full shrink-0 items-center justify-center over-tablet:w-auto"><img src="assets/product-hodu.jpg" alt="100% 쌀반죽 슈퍼호두" draggable="false" class="h-auto w-[272px] max-w-full rounded-[12px] object-contain over-tablet:h-[184px] over-tablet:w-[242px] over-web:h-[270px] over-web:w-[360px]"></div><div style="width:100%;text-align:center;margin-top:10px"><p style="font-size:13px;color:#7a6e68;font-weight:600">일반 호두과자보다 약 3배 큰 팥·커스터드 슈퍼호두 — 매장 시그니처 디저트로 도입할 수 있어요</p></div></div></div><section style="width:100%;display:flex;flex-direction:column;align-items:center;text-align:center;padding:64px 22px 26px;background:#fff"><span style="display:inline-flex;align-items:center;border:1.5px solid #f3b9a6;border-radius:33px;padding:8px 20px;font-size:13px;font-weight:700;color:#e6221c;background:#fff">공급리스트</span><h2 style="font-size:23px;font-weight:800;line-height:1.42;color:#23211f;margin-top:18px">우리 매장의 무기가 될<br><span style="color:#e6221c">재료들입니다</span></h2><div style="display:flex;flex-direction:column;align-items:center;gap:10px;width:100%;max-width:360px;margin-top:26px"><span style="display:flex;align-items:center;justify-content:center;width:100%;height:50px;border-radius:999px;border:2px solid transparent;background:linear-gradient(#ffffff,#ffffff) padding-box, linear-gradient(90deg,#ff8a70 0%,#cc2222 45%,#e8452e 70%,#ff8a70 100%) border-box;box-shadow:0 0 16px rgba(204,34,34,.18), 0 4px 14px rgba(204,34,34,.08);font-size:15px;font-weight:700;color:#342f2c">생보바</span><span style="display:flex;align-items:center;justify-content:center;width:100%;height:50px;border-radius:999px;border:2px solid transparent;background:linear-gradient(#ffffff,#ffffff) padding-box, linear-gradient(90deg,#ff8a70 0%,#cc2222 45%,#e8452e 70%,#ff8a70 100%) border-box;box-shadow:0 0 16px rgba(204,34,34,.18), 0 4px 14px rgba(204,34,34,.08);font-size:15px;font-weight:700;color:#342f2c">흑당</span><span style="display:flex;align-items:center;justify-content:center;width:100%;height:50px;border-radius:999px;border:2px solid transparent;background:linear-gradient(#ffffff,#ffffff) padding-box, linear-gradient(90deg,#ff8a70 0%,#cc2222 45%,#e8452e 70%,#ff8a70 100%) border-box;box-shadow:0 0 16px rgba(204,34,34,.18), 0 4px 14px rgba(204,34,34,.08);font-size:15px;font-weight:700;color:#342f2c">플랜트파우더</span><span style="display:flex;align-items:center;justify-content:center;width:100%;height:50px;border-radius:999px;border:2px solid transparent;background:linear-gradient(#ffffff,#ffffff) padding-box, linear-gradient(90deg,#ff8a70 0%,#cc2222 45%,#e8452e 70%,#ff8a70 100%) border-box;box-shadow:0 0 16px rgba(204,34,34,.18), 0 4px 14px rgba(204,34,34,.08);font-size:15px;font-weight:700;color:#342f2c">딸기베이스</span><span style="display:flex;align-items:center;justify-content:center;width:100%;height:50px;border-radius:999px;border:2px solid transparent;background:linear-gradient(#ffffff,#ffffff) padding-box, linear-gradient(90deg,#ff8a70 0%,#cc2222 45%,#e8452e 70%,#ff8a70 100%) border-box;box-shadow:0 0 16px rgba(204,34,34,.18), 0 4px 14px rgba(204,34,34,.08);font-size:15px;font-weight:700;color:#342f2c">망고베이스</span><span style="display:flex;align-items:center;justify-content:center;width:100%;height:50px;border-radius:999px;border:2px solid transparent;background:linear-gradient(#ffffff,#ffffff) padding-box, linear-gradient(90deg,#ff8a70 0%,#cc2222 45%,#e8452e 70%,#ff8a70 100%) border-box;box-shadow:0 0 16px rgba(204,34,34,.18), 0 4px 14px rgba(204,34,34,.08);font-size:15px;font-weight:700;color:#342f2c">딸기청</span><span style="display:flex;align-items:center;justify-content:center;width:100%;height:50px;border-radius:999px;border:2px solid transparent;background:linear-gradient(#ffffff,#ffffff) padding-box, linear-gradient(90deg,#ff8a70 0%,#cc2222 45%,#e8452e 70%,#ff8a70 100%) border-box;box-shadow:0 0 16px rgba(204,34,34,.18), 0 4px 14px rgba(204,34,34,.08);font-size:15px;font-weight:700;color:#342f2c">망고청</span><span style="display:flex;align-items:center;justify-content:center;width:100%;height:50px;border-radius:999px;border:2px solid transparent;background:linear-gradient(#ffffff,#ffffff) padding-box, linear-gradient(90deg,#ff8a70 0%,#cc2222 45%,#e8452e 70%,#ff8a70 100%) border-box;box-shadow:0 0 16px rgba(204,34,34,.18), 0 4px 14px rgba(204,34,34,.08);font-size:15px;font-weight:700;color:#342f2c">밀크폼 파우더</span><span style="display:flex;align-items:center;justify-content:center;width:100%;height:50px;border-radius:999px;border:2px solid transparent;background:linear-gradient(#ffffff,#ffffff) padding-box, linear-gradient(90deg,#ff8a70 0%,#cc2222 45%,#e8452e 70%,#ff8a70 100%) border-box;box-shadow:0 0 16px rgba(204,34,34,.18), 0 4px 14px rgba(204,34,34,.08);font-size:15px;font-weight:700;color:#342f2c">치즈폼 파우더</span><span style="display:flex;align-items:center;justify-content:center;width:100%;height:50px;border-radius:999px;border:2px solid transparent;background:linear-gradient(#ffffff,#ffffff) padding-box, linear-gradient(90deg,#ff8a70 0%,#cc2222 45%,#e8452e 70%,#ff8a70 100%) border-box;box-shadow:0 0 16px rgba(204,34,34,.18), 0 4px 14px rgba(204,34,34,.08);font-size:15px;font-weight:700;color:#342f2c">블랙티</span><span style="display:flex;align-items:center;justify-content:center;width:100%;height:50px;border-radius:999px;border:2px solid transparent;background:linear-gradient(#ffffff,#ffffff) padding-box, linear-gradient(90deg,#ff8a70 0%,#cc2222 45%,#e8452e 70%,#ff8a70 100%) border-box;box-shadow:0 0 16px rgba(204,34,34,.18), 0 4px 14px rgba(204,34,34,.08);font-size:15px;font-weight:700;color:#342f2c">자스민티</span><span style="display:flex;align-items:center;justify-content:center;width:100%;height:50px;border-radius:999px;border:2px solid transparent;background:linear-gradient(#ffffff,#ffffff) padding-box, linear-gradient(90deg,#ff8a70 0%,#cc2222 45%,#e8452e 70%,#ff8a70 100%) border-box;box-shadow:0 0 16px rgba(204,34,34,.18), 0 4px 14px rgba(204,34,34,.08);font-size:15px;font-weight:700;color:#342f2c">블랙우롱티</span><span style="display:flex;align-items:center;justify-content:center;width:100%;height:50px;border-radius:999px;border:2px solid transparent;background:linear-gradient(#ffffff,#ffffff) padding-box, linear-gradient(90deg,#ff8a70 0%,#cc2222 45%,#e8452e 70%,#ff8a70 100%) border-box;box-shadow:0 0 16px rgba(204,34,34,.18), 0 4px 14px rgba(204,34,34,.08);font-size:15px;font-weight:700;color:#342f2c">얼그레이홍차</span><span style="display:flex;align-items:center;justify-content:center;width:100%;height:50px;border-radius:999px;border:2px solid transparent;background:linear-gradient(#ffffff,#ffffff) padding-box, linear-gradient(90deg,#ff8a70 0%,#cc2222 45%,#e8452e 70%,#ff8a70 100%) border-box;box-shadow:0 0 16px rgba(204,34,34,.18), 0 4px 14px rgba(204,34,34,.08);font-size:15px;font-weight:700;color:#342f2c">스트로베리홍차</span><span style="display:flex;align-items:center;justify-content:center;width:100%;height:50px;border-radius:999px;border:2px solid transparent;background:linear-gradient(#ffffff,#ffffff) padding-box, linear-gradient(90deg,#ff8a70 0%,#cc2222 45%,#e8452e 70%,#ff8a70 100%) border-box;box-shadow:0 0 16px rgba(204,34,34,.18), 0 4px 14px rgba(204,34,34,.08);font-size:15px;font-weight:700;color:#342f2c">호두과자반죽</span><span style="display:flex;align-items:center;justify-content:center;width:100%;height:50px;border-radius:999px;border:2px dashed #f0c9be;background:#fff;font-size:18px;font-weight:800;letter-spacing:6px;color:#d9a294;opacity:.85">· · · · ·</span></div><p style="font-size:12.5px;color:#7a6e68;font-weight:500;margin-top:18px">※ 품목별 단가표와 상세 레시피는 상담 때 함께 안내드려요</p></section><div class="relative flex w-full flex-col items-center gap-7 pt-[52px] over-tablet:gap-10"><div aria-hidden="true" class="pointer-events-none absolute left-[-19px] top-[11px] h-[188px] w-[338px] select-none over-tablet:left-[calc(50%-50px)] over-tablet:top-[9px] over-tablet:h-[258px] over-tablet:w-[700px] over-tablet:-translate-x-1/2 over-web:top-[-77px] over-web:h-[494px] over-web:w-[1340px]"><div class="absolute inset-[-2%_-11%_-35%_-9%] over-tablet:inset-[5%_-6%_-35%_-5%] over-web:inset-[-3%_-5%_-21%_-4%]"><img src="assets/10b-report-outro-curve.svg" alt="" class="block h-full w-full max-w-none" width="300" height="150"></div></div><p class="tg-bold-20 relative text-center text-[#342f2c] over-tablet:tg-h2 over-web:text-[44px]"><span>잘 되는 카페의 </span><span class="text-[#ff7716]">한 끗 차이,</span><br>놓치지 마세요</p></div></section><section class="relative flex h-auto w-full flex-col items-center justify-center overflow-hidden over-tablet:h-[800px] over-web:h-[980px]" style="background-image:linear-gradient(180deg,#ffffffd9 5.81%,#ffffff1a 57.56%,#ffffff4d 90.57%)"><div aria-hidden="true" class="pointer-events-none absolute left-1/2 top-[calc(50%-27px)] h-[307px] w-[280px] -translate-x-1/2 -translate-y-1/2 select-none over-tablet:top-[calc(50%-39px)] over-tablet:h-[563px] over-tablet:w-[512px] over-web:top-[calc(50%-92px)] over-web:h-[680px] over-web:w-[600px]"><div class="absolute inset-[-33%_-30%_-33%_-29%] over-tablet:inset-[-25%_-23%_-25%_-23%] over-web:inset-[-23%_-22%_-23%_-21%]"><img src="assets/10b-outro-glow.svg" alt="" class="block h-full w-full max-w-none" width="300" height="150"></div></div><div class="relative z-10 flex max-w-[1200px] flex-col items-center gap-[40px] px-5 pb-[140px] pt-[100px] text-center over-tablet:px-10 over-web:gap-[80px]"><div class="flex flex-col items-center gap-[30px] over-web:gap-[60px]"><div style="display:flex;gap:14px;justify-content:center;width:100%;max-width:440px"><img src="assets/closing-1.jpg" alt="슈퍼보바 시그니처 메뉴" draggable="false" style="width:calc(50% - 7px);border-radius:18px;object-fit:cover;box-shadow:0 12px 30px rgba(120,60,40,.12)"><img src="assets/closing-2.jpg" alt="슈퍼보바 시그니처 메뉴" draggable="false" style="width:calc(50% - 7px);border-radius:18px;object-fit:cover;box-shadow:0 12px 30px rgba(120,60,40,.12)"></div></div></div></section><section style="width:100%;display:flex;flex-direction:column;align-items:center;text-align:center;padding:72px 22px 8px;background:#fff"><span style="display:inline-flex;align-items:center;border:1.5px solid #f3b9a6;border-radius:33px;padding:8px 20px;font-size:13px;font-weight:700;color:#e6221c;background:#fff">시그니처 메뉴</span><h2 style="font-size:24px;font-weight:800;line-height:1.42;color:#23211f;margin-top:18px">슈퍼보바 재료로 만드는<br><span style="color:#e6221c">시그니처 메뉴들입니다</span></h2><div style="width:100%;max-width:440px;background:#fff;border:1.5px solid #f5c0b2;border-radius:28px;padding:32px 26px;box-shadow:0 18px 46px rgba(204,34,34,.15);margin-top:30px"><span style="display:inline-block;font-size:12.5px;font-weight:800;color:#fff;background:linear-gradient(135deg,#f4837d,#e6221c);border-radius:999px;padding:6px 14px">베스트 오브 베스트</span><h3 style="font-size:23px;font-weight:800;color:#342f2c;margin-top:16px">흑당 생보바 밀크티</h3><img src="assets/menu-best.jpg" alt="흑당 생보바 밀크티" draggable="false" style="width:100%;max-width:300px;margin:18px auto 4px;border-radius:18px;display:block"><div style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:14px"><span style="display:inline-flex;align-items:center;height:30px;padding:0 12px;border-radius:999px;border:1.5px solid transparent;background:linear-gradient(#fff,#fff) padding-box, linear-gradient(90deg,#ff8a70,#cc2222,#ff8a70) border-box;font-size:12px;font-weight:700;color:#4b433e">흑당</span><span style="display:inline-flex;align-items:center;height:30px;padding:0 12px;border-radius:999px;border:1.5px solid transparent;background:linear-gradient(#fff,#fff) padding-box, linear-gradient(90deg,#ff8a70,#cc2222,#ff8a70) border-box;font-size:12px;font-weight:700;color:#4b433e">생보바</span><span style="display:inline-flex;align-items:center;height:30px;padding:0 12px;border-radius:999px;border:1.5px solid transparent;background:linear-gradient(#fff,#fff) padding-box, linear-gradient(90deg,#ff8a70,#cc2222,#ff8a70) border-box;font-size:12px;font-weight:700;color:#4b433e">우유</span><span style="display:inline-flex;align-items:center;height:30px;padding:0 12px;border-radius:999px;border:1.5px solid transparent;background:linear-gradient(#fff,#fff) padding-box, linear-gradient(90deg,#ff8a70,#cc2222,#ff8a70) border-box;font-size:12px;font-weight:700;color:#4b433e">밀크폼</span><span style="display:inline-flex;align-items:center;height:30px;padding:0 12px;border-radius:999px;border:1.5px solid transparent;background:linear-gradient(#fff,#fff) padding-box, linear-gradient(90deg,#ff8a70,#cc2222,#ff8a70) border-box;font-size:12px;font-weight:700;color:#4b433e">모스코바도 원당</span></div><p style="font-size:13px;color:#e6221c;font-weight:700;margin-top:10px">자세한 레시피는 입점 시 공유해 드려요</p></div><div style="width:100%;max-width:440px;background:#fff;border:1px solid #f1e4de;border-radius:26px;padding:24px 24px 22px;margin-top:22px;box-shadow:0 14px 36px rgba(120,60,40,.09)"><img src="assets/menu-fruit.jpg" alt="과일 밀크티" draggable="false" style="width:100%;max-width:260px;border-radius:18px;display:block;margin:0 auto"><h3 style="font-size:19px;font-weight:800;color:#342f2c;margin-top:14px">과일 밀크티</h3><p style="font-size:13px;color:#7a6e68;font-weight:500;margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">엄선한 청과 베이스로 맛있는 베리에이션</p></div><div style="width:100%;max-width:440px;background:#fff;border:1px solid #f1e4de;border-radius:26px;padding:24px 24px 22px;margin-top:22px;box-shadow:0 14px 36px rgba(120,60,40,.09)"><img src="assets/menu-premium.jpg" alt="프리미엄 밀크티" draggable="false" style="width:100%;max-width:260px;border-radius:18px;display:block;margin:0 auto"><h3 style="font-size:19px;font-weight:800;color:#342f2c;margin-top:14px">프리미엄 밀크티</h3><p style="font-size:13px;color:#7a6e68;font-weight:500;margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">직접 우려낸 차와 대만 전통 원료</p></div><div style="width:100%;max-width:440px;background:#fff;border:1px solid #f1e4de;border-radius:26px;padding:24px 24px 22px;margin-top:22px;box-shadow:0 14px 36px rgba(120,60,40,.09)"><img src="assets/menu-coconut.jpg" alt="코코넛 스무디" draggable="false" style="width:100%;max-width:260px;border-radius:18px;display:block;margin:0 auto"><h3 style="font-size:19px;font-weight:800;color:#342f2c;margin-top:14px">코코넛 스무디</h3><p style="font-size:13px;color:#7a6e68;font-weight:500;margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">코코넛밀크에 과일청으로 낸 자연스러운 맛</p></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px;margin-top:22px;font-size:28px;font-weight:800;color:#d9a294;line-height:1"><span>·</span><span>·</span><span>·</span></div></section><section style="width:100%;display:flex;flex-direction:column;align-items:center;text-align:center;padding:76px 22px 8px;background:#fff"><span style="display:inline-flex;align-items:center;border:1.5px solid #f3b9a6;border-radius:33px;padding:8px 20px;font-size:13px;font-weight:700;color:#e6221c;background:#fff">대표 직접 컨설팅</span><h2 style="font-size:24px;font-weight:800;line-height:1.42;color:#23211f;margin-top:18px">전용상품 공급을 넘어<br><span style="color:#e6221c">카페 전체 컨설팅이 필요하다면?</span></h2><p style="font-size:15px;color:#7a6e68;font-weight:500;margin-top:12px">푸드컨설턴트 강신화 대표가 직접<br>사장님 카페의 메뉴와 브랜드를 설계합니다</p><div style="width:100%;max-width:440px;background:#fff;border:1px solid #f1e4de;border-radius:26px;padding:26px 24px;margin-top:30px;box-shadow:0 14px 36px rgba(120,60,40,.09);text-align:left"><div style="display:flex;gap:16px;align-items:center"><img src="assets/ceo-sketch.webp" alt="푸드컨설턴트 강신화 대표" draggable="false" style="width:84px;height:84px;object-fit:cover;border-radius:50%;border:2px solid #f3b9a6;flex:0 0 auto"><div><p style="font-size:18px;font-weight:800;color:#342f2c">강신화 <span style="font-size:13px;font-weight:600;color:#7a6e68">대표 · 푸드컨설턴트</span></p><p style="font-size:14px;font-weight:800;color:#e6221c;margin-top:4px">외식업 21년 · R&D 15년</p></div></div><div style="border-top:1px solid #f6ece7;margin-top:16px;padding-top:14px"><div style="display:flex;gap:10px;font-size:13px;color:#7a6e68;font-weight:500;line-height:1.5;margin-top:7px;text-align:left"><span style="color:#e6221c;font-weight:700;flex:0 0 44px">2011</span><span>피자헛 R&D센터 연구원</span></div><div style="display:flex;gap:10px;font-size:13px;color:#7a6e68;font-weight:500;line-height:1.5;margin-top:7px;text-align:left"><span style="color:#e6221c;font-weight:700;flex:0 0 44px">2013</span><span>위메프 커피사업부 R&D 팀장</span></div><div style="display:flex;gap:10px;font-size:13px;color:#7a6e68;font-weight:500;line-height:1.5;margin-top:7px;text-align:left"><span style="color:#e6221c;font-weight:700;flex:0 0 44px">2018</span><span>쿠우쿠우 R&D 팀장</span></div><div style="display:flex;gap:10px;font-size:13px;color:#7a6e68;font-weight:500;line-height:1.5;margin-top:7px;text-align:left"><span style="color:#e6221c;font-weight:700;flex:0 0 44px">2020</span><span>대한곱창 신규브랜드 런칭</span></div><div style="display:flex;gap:10px;font-size:13px;color:#7a6e68;font-weight:500;line-height:1.5;margin-top:7px;text-align:left"><span style="color:#e6221c;font-weight:700;flex:0 0 44px">2021</span><span>밀탑 본사 메뉴 복원 재런칭</span></div><div style="display:flex;gap:10px;font-size:13px;color:#7a6e68;font-weight:500;line-height:1.5;margin-top:7px;text-align:left"><span style="color:#e6221c;font-weight:700;flex:0 0 44px">2022</span><span>고든램지코리아 신규브랜드 런칭 총괄 · 주다호두 런칭</span></div><p style="font-size:12.5px;color:#a99f99;font-weight:500;margin-top:12px">프랜차이즈 본사 브랜드 기획 · 신규 런칭 총괄 · 메뉴 R&D</p></div></div><p style="font-size:11.5px;color:#b3a9a3;font-weight:400;margin-top:16px">컨설팅 범위에 따라 소정의 비용이 발생할 수 있습니다</p></section><div style="width:100%;background:#241a17;color:#b9aca6;text-align:center;padding:46px 22px 54px;font-size:12px;line-height:1.9"><img src="assets/superboba-logo.png" alt="SUPER BOBA" draggable="false" style="width:150px;margin:0 auto 12px;display:block"><p style="color:#8e817b">Real Tea. Fresh Boba.</p><p style="margin-top:14px">슈퍼보바 직영점 — 삼성본점 · 갤러리아 압구정점</p><p><a href="https://superboba.co.kr" style="color:#e8dcd6;text-decoration:none">superboba.co.kr</a> · <a href="https://instagram.com/superboba_official" style="color:#e8dcd6;text-decoration:none">@superboba_official</a></p><p style="margin-top:14px;color:#7a6e68">© SUPERBOBA. All Rights Reserved.</p></div></main><section aria-label="Notifications alt+T" tabindex="-1" aria-live="polite" aria-relevant="additions text" aria-atomic="false"></section></div></div><next-route-announcer><p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; top: 0px; width: 1px; white-space: nowrap; overflow-wrap: normal;"></p></next-route-announcer></body></html>
