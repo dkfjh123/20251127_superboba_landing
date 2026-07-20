@@ -1790,7 +1790,7 @@
     .bar span { margin-top: 8px; font-size: 11.5px; line-height: 1.35; color: var(--sub); }
 
     .market-visual { margin-top: 18px; border-radius: 24px; overflow: hidden; aspect-ratio: 21/9; }
-    .market-visual img { width: 100%; height: 100%; object-fit: cover; }
+    .market-visual img, .market-visual video { width: 100%; height: 100%; object-fit: cover; }
 
     .position-band__sub { display: block; margin-top: 14px; font-family: var(--font-body); font-size: clamp(15px, 2vw, 18px); font-weight: 500; letter-spacing: -0.01em; color: var(--sub); }
 
@@ -1961,7 +1961,9 @@
             </ul>
           </div>
         </div>
-        <div class="market-visual rv"><img src="assets/web/crowd-outdoor-1.webp" alt="매장 앞까지 이어진 대기 줄" loading="lazy"></div>
+        <div class="market-visual rv"><video class="lazy-vid" muted loop playsinline preload="none"
+            poster="assets/web/store-wait-poster.webp" data-src="assets/web/store-wait.mp4" data-rate="1.5"
+            aria-label="주문이 끊이지 않는 슈퍼보바 직영점 (빠른 재생 · 비식별 처리)"></video></div>
         <div class="market-twist rv">시장이 커질수록 경쟁도 거세집니다. 살아남는 카페의 차이는 결국 <b>맛의 차별점</b> — 슈퍼보바는 직영점에서 검증한 그 차별점을 그대로 공급합니다.</div>
         <p class="market-band rv" id="marketBand">버블티 토핑의 <span class="pt">42.6%가 '펄'</span>.<br>커지는 시장의 승부처는<br><span class="pt">초격차를 만드는 '펄'과 '음료 베이스'</span>입니다.</p>
         <p class="market-src">출처: FMI · iiMedia · 유로모니터 · 통계청 · 업계 보도 (2012~2026.5)</p>
@@ -2535,7 +2537,15 @@
     (function () {
       var vids = document.querySelectorAll('video.lazy-vid');
       function load(v) {
-        if (v.dataset.src && !v.src) { v.src = v.dataset.src; v.play().catch(function () { }); }
+        if (v.dataset.src && !v.src) {
+          v.src = v.dataset.src;
+          if (v.dataset.rate) { /* 대기줄 영상 등 배속 재생 (로드 시 defaultPlaybackRate로 초기화되는 브라우저 대비) */
+            var rate = parseFloat(v.dataset.rate);
+            v.defaultPlaybackRate = rate;
+            v.playbackRate = rate;
+          }
+          v.play().catch(function () { });
+        }
       }
       if (!('IntersectionObserver' in window)) { vids.forEach(load); return; }
       var io = new IntersectionObserver(function (entries) {
